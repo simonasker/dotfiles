@@ -1,0 +1,7 @@
+[user]
+	email = simon.asker@gmail.com
+	name = Simon Andersson
+[core]
+	editor = vim
+[push]
+	default = simple
