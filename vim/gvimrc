@@ -7,3 +7,5 @@ set guioptions-=m
 set guioptions-=L
 set guioptions-=r
 set guioptions-=e
+
+set guifont=Monospace\ 9
