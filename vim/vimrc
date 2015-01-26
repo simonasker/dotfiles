@@ -1,3 +1,4 @@
+execute pathogen#infect()
 filetype plugin indent on
 syntax on
 
@@ -22,12 +23,8 @@ autocmd BufWritePre * :%s/\s\+$//ge
 
 set directory=~/.vim/swap
 
-" PythonMode ==================================================================
-
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope = 0
-
-" =============================================================================
+" Remap leader to comma
+let mapleader = ","
 
 " Reselect visual blocks after indent/outdent
 vnoremap < <gv
@@ -43,9 +40,6 @@ nnoremap <C-l> <C-w>l
 nnoremap j gj
 nnoremap k gk
 
-" Remap leader to comma
-let mapleader = ","
-
 " A more handy Esc
 inoremap kj <Esc>
 
@@ -56,3 +50,12 @@ noremap L $
 " Cycle through tabs like in firefox
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
+
+" NERDTree ====================================================================
+
+nnoremap <leader>t :NERDTree<CR>
+
+" PythonMode ==================================================================
+
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope = 0
