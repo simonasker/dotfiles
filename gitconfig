@@ -7,3 +7,5 @@
 	default = matching
 [color]
 	ui = auto
+[github]
+    user = simonasker
