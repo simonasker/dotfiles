@@ -8,4 +8,7 @@ set guioptions-=L
 set guioptions-=r
 set guioptions-=e
 
+set columns=90
+set lines=50
+
 set guifont=Monospace\ 9
