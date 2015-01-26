@@ -352,12 +352,12 @@
     <!-- Keybindings for running Run menu from Lxpanel on Home + R-->
     <keybind key="W-r">
       <action name="Execute">
-        <command>lxpanelctl run</command>
+        <command>gmrun</command>
       </action>
     </keybind>
     <keybind key="A-F2">
       <action name="Execute">
-        <command>lxpanelctl run</command>
+        <command>gmrun</command>
       </action>
     </keybind>
     <!-- Keybindings for running Menu from Lxpanel -->
