@@ -398,9 +398,14 @@
       </action>
     </keybind>
     <!-- Lock the screen on Ctrl + Alt + l-->
+    <keybind key="C-W-l">
+      <action name="Execute">
+        <command>i3lock -c 000000</command>
+      </action>
+    </keybind>
     <keybind key="C-A-l">
       <action name="Execute">
-        <command>lxsession-default lock</command>
+        <command>i3lock -c 000000</command>
       </action>
     </keybind>
     <!-- Keybinding for Volume management -->
