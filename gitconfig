@@ -1,11 +1,19 @@
 [user]
-	email = simon.asker@gmail.com
-	name = Simon Andersson
+    name = Simon Andersson
+    email = simon.asker@gmail.com
 [core]
-	editor = vim
+    editor = vim
 [push]
-	default = matching
+    default = simple
 [color]
-	ui = auto
+    ui = true
 [github]
     user = simonasker
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    gr = log --graph --all --pretty=format:'%Cred%h%Creset - %s %C(yellow)%d%Cgreen(%ci) %C(bold blue)<%an>'
