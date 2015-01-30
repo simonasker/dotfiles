@@ -7,8 +7,6 @@
     default = simple
 [color]
     ui = true
-[github]
-    user = simonasker
 [alias]
     co = checkout
     br = branch
@@ -19,4 +17,3 @@
     gr = log --graph --all --pretty=format:'%Cred%h%Creset - %s %C(yellow)%d%Cgreen(%ci) %C(bold blue)<%an>'
 [merge]
     ff = no
-    commit = no
