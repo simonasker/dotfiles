@@ -44,7 +44,6 @@ nnoremap k gk
 
 " A more handy Esc
 inoremap kj <Esc>
-vnoremap kj <Esc>
 
 " Jumpt to start and end of line using home row keys
 noremap H ^
