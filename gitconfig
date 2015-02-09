@@ -9,7 +9,7 @@
     ui = true
 [alias]
     co = checkout
-    br = branch
+    br = branch -avv
     ci = commit
     st = status
     unstage = reset HEAD --
