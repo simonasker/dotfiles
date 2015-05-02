@@ -12,8 +12,6 @@
     br = branch -avv
     ci = commit
     st = status
-    unstage = reset HEAD --
-    last = log -1 HEAD
     gr = log --graph --all --pretty=format:'%Cred%h%Creset - %s %C(yellow)%d%Cgreen(%ci) %C(bold blue)<%an>'
 [merge]
     ff = no
