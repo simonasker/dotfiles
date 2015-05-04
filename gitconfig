@@ -1,6 +1,7 @@
 [user]
     name = Simon Andersson
-    email = simon.asker@gmail.com
+    email = simon@mullvad.net
+    signingkey = BC334D52
 [core]
     editor = vim
 [push]
