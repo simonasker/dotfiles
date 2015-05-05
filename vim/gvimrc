@@ -1,14 +1,14 @@
 filetype plugin indent on
 syntax on
 
-colorscheme jellybeans
+colorscheme github
 set guioptions-=T
 set guioptions-=m
 set guioptions-=L
 set guioptions-=r
 set guioptions-=e
 
-set columns=120
-set lines=50
+set columns=110
+set lines=65
 
 set guifont=Monospace\ 9
