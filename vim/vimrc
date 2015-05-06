@@ -15,6 +15,9 @@ set softtabstop=4       " insert/delete 4 spaces when hitting TAB/BACKSPACE
 set shiftround          " round indent to multiple of 'shiftwidth'
 set autoindent          " align the new line indent with the previous line
 
+set wildmode=longest,list,full      " sensible tab-completion behavior
+set wildmenu                        " extend tab-completion with interactive menu
+
 set nocompatible
 
 " Keep cursor 4 lines away form window edges
