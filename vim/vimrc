@@ -26,6 +26,9 @@ set scrolloff=4
 " Remove trailing whitespaces when writing a buffer to file
 autocmd BufWritePre * :%s/\s\+$//ge
 
+" Use Markdown syntax highlighting for .md-files
+autocmd BufNewFile,BufRead *.md set syntax=markdown
+
 set directory=~/.vim/swap
 
 " Remap leader to comma
