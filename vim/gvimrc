@@ -1,7 +1,7 @@
 filetype plugin indent on
 syntax on
 
-colorscheme github
+colorscheme jellybeans
 set guioptions-=T
 set guioptions-=m
 set guioptions-=L
