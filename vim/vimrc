@@ -60,10 +60,6 @@ noremap L $
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
-" NERDTree ====================================================================
-
-nnoremap <leader>t :NERDTree<CR>
-
 " PythonMode ==================================================================
 
 let g:pymode_rope_complete_on_dot = 0
