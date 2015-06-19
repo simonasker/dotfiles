@@ -60,6 +60,10 @@ noremap L $
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
+" Vim-Fugitive ================================================================
+"
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
 " PythonMode ==================================================================
 
 let g:pymode_rope_complete_on_dot = 0
