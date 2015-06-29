@@ -60,6 +60,10 @@ noremap L $
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
+" Map ö and ä to square brackets
+nmap ö [
+nmap ä ]
+
 " Vim-Fugitive ================================================================
 "
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
