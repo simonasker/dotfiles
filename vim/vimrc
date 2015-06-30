@@ -64,6 +64,9 @@ map <C-p> :tabp<CR>
 nmap ö [
 nmap ä ]
 
+" Expand %% to current files directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 " Vim-Fugitive ================================================================
 "
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
