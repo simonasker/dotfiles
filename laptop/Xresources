@@ -1,3 +1,5 @@
+# NOTE After linking to this file from the home directory, restart X or run
+# 'xrdb -merge ~/.Xresources' in a terminal to incorporate the changes.
 URxvt.scrollBar: False
 URxvt.foreground: White
 URxvt.background: Black
