@@ -29,6 +29,8 @@ set autoindent          " align the new line indent with the previous line
 set wildmode=longest,list,full      " sensible tab-completion behavior
 set wildmenu                        " extend tab-completion with interactive menu
 
+set textwidth=80
+
 set nocompatible
 
 " }}}
