@@ -26,6 +26,9 @@ font pango:DejaVu Sans Mono 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# lock the screen
+bindsym $mod+Ctrl+l exec i3lock -c 000000
+
 # start a terminal
 bindsym $mod+Return exec rxvt-unicode
 
