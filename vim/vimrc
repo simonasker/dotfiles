@@ -77,10 +77,6 @@ noremap L $
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
-" Map ö and ä to square brackets
-nmap ö [
-nmap ä ]
-
 " Expand %% to current files directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
@@ -97,13 +93,6 @@ let g:pymode_rope = 0
 let g:pymode_options_max_line_length = 79
 let g:pymode_options_colorcolumn = 0
 let g:pymode_folding = 0
-
-" }}}
-" Useful new mappings from learning vimscript {{{
-
-nnoremap <leader>ev :split $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
 " }}}
 " Vimscript file settings {{{
