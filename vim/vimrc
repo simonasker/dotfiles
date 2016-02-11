@@ -11,7 +11,7 @@ set directory=~/.vim/swap
 colorscheme slate
 set number              " display line numbers
 set cursorline          " highlight the current line
-" set hls                 " set highlight search on
+set hlsearch            " set highlight search on
 
 " Keep cursor 4 lines away form window edges
 set scrolloff=4
