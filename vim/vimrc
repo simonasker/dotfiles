@@ -43,9 +43,6 @@ autocmd BufWritePre * :%s/\s\+$//ge
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
 
-" Recogize .rs files as Rust
-au BufNewFile,BufRead *.rs set filetype=rust
-
 " }}}
 " Custom mappings {{{
 
