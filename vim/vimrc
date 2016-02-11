@@ -6,19 +6,11 @@ syntax on
 
 set directory=~/.vim/swap
 
-" Interface {{{
-
 colorscheme slate
 set number              " display line numbers
 set cursorline          " highlight the current line
 set hlsearch            " set highlight search on
-
-" Keep cursor 4 lines away form window edges
-set scrolloff=4
-
-" }}}
-" Formatting {{{
-
+set scrolloff=4         " Keep cursor 4 lines away form window edges
 set shiftwidth=4        " operation >> indents 4 columns; << unindents 4 columns
 set tabstop=4           " a hard TAB displays as 4 columns
 set expandtab           " insert spaces then hitting TABs
@@ -26,25 +18,16 @@ set softtabstop=4       " insert/delete 4 spaces when hitting TAB/BACKSPACE
 set shiftround          " round indent to multiple of 'shiftwidth'
 set autoindent          " align the new line indent with the previous line
 set smartindent
-
 set wildmode=longest,list,full      " sensible tab-completion behavior
 set wildmenu                        " extend tab-completion with interactive menu
-
 set textwidth=80
-
 set nocompatible
-
-" }}}
-" Auto commands {{{
 
 " Remove trailing whitespaces when writing a buffer to file
 autocmd BufWritePre * :%s/\s\+$//ge
 
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
-
-" }}}
-" Custom mappings {{{
 
 " Remap leader to comma
 let mapleader = ","
@@ -74,30 +57,14 @@ noremap L $
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
-" Expand %% to current files directory
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-" }}}
-" Vim-Fugitive {{{
+" Vim-Fugitive
 
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" }}}
-" PythonMode {{{
+" PythonMode
 
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope = 0
 let g:pymode_options_max_line_length = 79
 let g:pymode_options_colorcolumn = 0
 let g:pymode_folding = 0
-
-" }}}
-" Vimscript file settings {{{
-
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-    autocmd FileType vim setlocal foldlevelstart=0
-augroup END
-
-" }}}
