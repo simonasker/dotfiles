@@ -2,6 +2,8 @@
     name = Simon Andersson
     email = simon@mullvad.net
     signingkey = BC334D52
+[gpg]
+    program = qubes-gpg-client
 [core]
     editor = vim
 [push]
