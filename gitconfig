@@ -12,4 +12,4 @@
     br = branch -avv
     ci = commit
     st = status
-    gr = log --graph --all --pretty=format:'%Cred%h%Creset - %Cblue%G?%Creset %s %C(yellow)%d%Cgreen(%ci) %C(bold blue)<%an>'
+    gr = log --graph --oneline --decorate --all
