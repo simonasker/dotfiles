@@ -12,4 +12,4 @@ set guioptions+=c
 set columns=110
 set lines=65
 
-set guifont=Monospace\ 14
+set guifont=Monospace\ 13
