@@ -3,7 +3,7 @@
     email = simon@mullvad.net
     signingkey = BC334D52
 [gpg]
-    program = qubes-gpg-client
+    program  = gpg
 [core]
     editor = vim
 [push]
