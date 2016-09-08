@@ -3,11 +3,5 @@ set hintchars=hjklasdf
 
 qmark g https://github.com
 qmark y https://news.ycombinator.com
-qmark f https://www.feedly.com
-qmark m https://mail.google.com
-qmark c https://calendar.google.com
-qmark t https://trello.com/b/BMqYo5yQ/main
 qmark s https://mullvad.slack.com
 qmark p https://docs.python.org/3.4/library/index.html
-qmark d https://tweetdeck.twitter.com
-qmark b https://bitbucket.org
