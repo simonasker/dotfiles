@@ -7,6 +7,7 @@ set guioptions-=m
 set guioptions-=L
 set guioptions-=r
 set guioptions-=e
+set guioptions+=c
 
 set columns=110
 set lines=65
