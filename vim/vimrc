@@ -6,7 +6,7 @@ syntax on
 
 set directory=~/.vim/swap
 
-colorscheme slate
+colorscheme jellybeans
 set number              " display line numbers
 set cursorline          " highlight the current line
 set hlsearch            " set highlight search on
