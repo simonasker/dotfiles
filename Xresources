@@ -1,0 +1,49 @@
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+URxvt*secondaryScreen: 1
+URxvt*secondaryScroll: 0
+
+
+URxvt*font: 9x15
+
+URxvt*scrollBar: false
+URxvt*urlLauncher: firefox
+
+URxvt*background: #060606
+URxvt*foreground: #dddddd
+
+! git red
+URxvt*color1: red
+! git green
+URxvt*color2: green
+
+!URxvt*color3: #FFFF00
+!URxvt*color4: #FFFF00
+!URxvt*color5: #FFFF00
+
+! git cyan
+URxvt*color6: cyan
+
+!URxvt*color7: #FFFF00
+!URxvt*color8: #FFFF00
+
+! tar.gz files
+URxvt*color9: red
+! executables
+URxvt*color10: green
+! directories
+URxvt*color12: #4444FF
+! images
+URxvt*color13: magenta
+! soft links
+URxvt*color14: cyan
+
+!URxvt*color11: #FFFF00
+!URxvt*color15: #FFFF00
