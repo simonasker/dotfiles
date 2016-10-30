@@ -10,8 +10,9 @@ URxvt*scrollTtyKeypress: true
 URxvt*secondaryScreen: 1
 URxvt*secondaryScroll: 0
 
-
-URxvt*font: 9x15
+URxvt*font: 8x13
+!URxvt*font: 9x15
+!URxvt*font: xft:DejaVu Sans Mono:size=9
 
 URxvt*scrollBar: false
 URxvt*urlLauncher: firefox
