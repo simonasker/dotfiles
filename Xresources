@@ -1,50 +1,52 @@
+xterm*termName: xterm-256color
+
 ! do not scroll with output
-URxvt*scrollTtyOutput: false
+XTerm*scrollTtyOutput: false
 
 ! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer: true
+XTerm*scrollWithBuffer: true
 
 ! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
+XTerm*scrollTtyKeypress: true
 
-URxvt*secondaryScreen: 1
-URxvt*secondaryScroll: 0
+XTerm*secondaryScreen: 1
+XTerm*secondaryScroll: 0
 
-URxvt*font: 8x13
-!URxvt*font: 9x15
-!URxvt*font: xft:DejaVu Sans Mono:size=9
+XTerm*font: 8x13
+!XTerm*font: 9x15
+!XTerm*font: xft:DejaVu Sans Mono:size=9
 
-URxvt*scrollBar: false
-URxvt*urlLauncher: firefox
+XTerm*scrollBar: false
+XTerm*urlLauncher: firefox
 
-URxvt*background: #060606
-URxvt*foreground: #dddddd
+XTerm*background: #060606
+XTerm*foreground: #dddddd
 
 ! git red
-URxvt*color1: red
+XTerm*color1: red
 ! git green
-URxvt*color2: green
+XTerm*color2: green
 
-!URxvt*color3: #FFFF00
-!URxvt*color4: #FFFF00
-!URxvt*color5: #FFFF00
+!XTerm*color3: #FFFF00
+!XTerm*color4: #FFFF00
+!XTerm*color5: #FFFF00
 
 ! git cyan
-URxvt*color6: cyan
+XTerm*color6: cyan
 
-!URxvt*color7: #FFFF00
-!URxvt*color8: #FFFF00
+!XTerm*color7: #FFFF00
+!XTerm*color8: #FFFF00
 
 ! tar.gz files
-URxvt*color9: red
+XTerm*color9: red
 ! executables
-URxvt*color10: green
+XTerm*color10: green
 ! directories
-URxvt*color12: #4444FF
+XTerm*color12: #4444FF
 ! images
-URxvt*color13: magenta
+XTerm*color13: magenta
 ! soft links
-URxvt*color14: cyan
+XTerm*color14: cyan
 
-!URxvt*color11: #FFFF00
-!URxvt*color15: #FFFF00
+!XTerm*color11: #FFFF00
+!XTerm*color15: #FFFF00
