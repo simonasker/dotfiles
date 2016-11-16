@@ -19,8 +19,10 @@ XTerm*faceName: Monospace:pixelsize=12:spacing=mono
 XTerm*scrollBar: false
 XTerm*urlLauncher: firefox
 
-XTerm*background: #060606
-XTerm*foreground: #dddddd
+!XTerm*background: #060606
+!XTerm*foreground: #dddddd
+XTerm*background: black
+XTerm*foreground: white
 
 ! directories
 XTerm*color12: #4444FF
