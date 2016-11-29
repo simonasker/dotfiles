@@ -20,6 +20,7 @@ set autoindent          " align the new line indent with the previous line
 set smartindent
 set wildmode=longest,list,full      " sensible tab-completion behavior
 set wildmenu                        " extend tab-completion with interactive menu
+set laststatus=2
 set nocompatible
 
 " Remove trailing whitespaces when writing a buffer to file
@@ -28,22 +29,8 @@ autocmd BufWritePre * :%s/\s\+$//ge
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
 
-" Remap leader to comma
-let mapleader = ","
-
-" Reselect visual blocks after indent/outdent
-vnoremap < <gv
-vnoremap > >gv
-
-" Easy split navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Improve up/down movement on wrapped lines
-nnoremap j gj
-nnoremap k gk
+" Remap leader to hyphen
+let mapleader = "-"
 
 " A more handy Esc
 inoremap kj <Esc>
@@ -56,6 +43,15 @@ noremap L $
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
+" New from practical vim
+
+" Testing
+nnoremap <silent> åb :bprevious<CR>
+
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+set incsearch
+
 " Vim-Fugitive
 
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
@@ -67,3 +63,8 @@ let g:pymode_rope = 0
 let g:pymode_options_max_line_length = 79
 let g:pymode_options_colorcolumn = 0
 let g:pymode_folding = 0
+
+" vim-airline
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='jellybeans'
