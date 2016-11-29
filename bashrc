@@ -127,3 +127,8 @@ man() {
     LESS_TERMCAP_us=$'\e'"[1;32m" \
     command man "$@"
 }
+
+# From Mullvad setup (when using virtualenvwrapper)
+# Setup virtualenv
+# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# export WORKON_HOME=/virtenvs
