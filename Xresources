@@ -12,9 +12,9 @@ XTerm*scrollTtyKeypress: true
 XTerm*secondaryScreen: 1
 XTerm*secondaryScroll: 0
 
-XTerm*font: 8x13
-!XTerm*font: 9x15
-!XTerm*font: xft:DejaVu Sans Mono:size=9
+XTerm*geometry: 80x24+540+200
+
+XTerm*faceName: Monospace:pixelsize=12:spacing=mono
 
 XTerm*scrollBar: false
 XTerm*urlLauncher: firefox
@@ -22,31 +22,12 @@ XTerm*urlLauncher: firefox
 XTerm*background: #060606
 XTerm*foreground: #dddddd
 
-! git red
-XTerm*color1: red
-! git green
-XTerm*color2: green
-
-!XTerm*color3: #FFFF00
-!XTerm*color4: #FFFF00
-!XTerm*color5: #FFFF00
-
-! git cyan
-XTerm*color6: cyan
-
-!XTerm*color7: #FFFF00
-!XTerm*color8: #FFFF00
-
-! tar.gz files
-XTerm*color9: red
-! executables
-XTerm*color10: green
 ! directories
 XTerm*color12: #4444FF
-! images
-XTerm*color13: magenta
-! soft links
-XTerm*color14: cyan
 
-!XTerm*color11: #FFFF00
-!XTerm*color15: #FFFF00
+!FROM QUBES
+Xft.antialias: 1
+Xft.hinting: 1
+Xft.rgba: rgb
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
