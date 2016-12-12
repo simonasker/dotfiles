@@ -116,6 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Setup virtualenv
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+export WORKON_HOME=~/virtenvs
+
 # Colored man pages
 man() {
     LESS_TERMCAP_mb=$'\e'"[1;31m" \
