@@ -68,3 +68,7 @@ let g:pymode_folding = 0
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='jellybeans'
+
+" NERDTree
+
+nnoremap <leader>t :NERDTreeToggle<CR>
