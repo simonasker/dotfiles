@@ -1,9 +1,6 @@
 [user]
     name = Simon Andersson
-    email = simon@mullvad.net
-    signingkey = BC334D52
-[gpg]
-    program  = gpg
+    email = simonasker@posteo.net
 [core]
     editor = vim
 [push]
