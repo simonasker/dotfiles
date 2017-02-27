@@ -1,7 +1,0 @@
-set defsearch=duckduckgo
-set hintchars=hjklasdf
-
-qmark g https://github.com
-qmark y https://news.ycombinator.com
-qmark s https://mullvad.slack.com
-qmark p https://docs.python.org/3.4/library/index.html
