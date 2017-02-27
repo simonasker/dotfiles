@@ -1,0 +1,18 @@
+[user]
+    name = Simon Andersson
+    email = simon@mullvad.net
+    signingkey = BC334D52
+[gpg]
+    program  = gpg
+[core]
+    editor = vim
+[push]
+    default = simple
+[color]
+    ui = true
+[alias]
+    co = checkout
+    br = branch -avv
+    ci = commit
+    st = status
+    gr = log --graph --oneline --decorate --all
