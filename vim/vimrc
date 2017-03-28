@@ -9,7 +9,6 @@ set directory=~/.vim/swap
 colorscheme jellybeans
 set number              " display line numbers
 set cursorline          " highlight the current line
-set hlsearch            " set highlight search on
 set scrolloff=4         " Keep cursor 4 lines away form window edges
 set shiftwidth=4        " operation >> indents 4 columns; << unindents 4 columns
 set tabstop=4           " a hard TAB displays as 4 columns
@@ -23,19 +22,39 @@ set wildmenu                        " extend tab-completion with interactive men
 set laststatus=2
 set nocompatible
 
+set showcmd " show command in bottom bar
+set lazyredraw " redraw only when we need to
+set showmatch " highlight matching [{()}]
+set incsearch " seach as characters are entered
+set hlsearch " hightlight matches
+
+set foldenable " enable folding
+set foldlevelstart=10 " open most folds by default
+set foldnestmax=10
+
+" space open/closes folds
+nnoremap <space> za
+set foldmethod=indent " fold based on indent level
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" highlight last inserted text
+nnoremap gV `[v`]
+
 " Remove trailing whitespaces when writing a buffer to file
 autocmd BufWritePre * :%s/\s\+$//ge
 
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
 
-" Remap leader to hyphen
-let mapleader = "-"
+let mapleader = "," " leader is comma
 
-" A more handy Esc
+" kj is escape
 inoremap kj <Esc>
 
-" Jumpt to start and end of line using home row keys
+" move to beginning/end of line
 noremap H ^
 noremap L $
 
@@ -49,8 +68,6 @@ map <C-p> :tabp<CR>
 nnoremap <silent> åb :bprevious<CR>
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
-set incsearch
 
 " Vim-Fugitive
 
