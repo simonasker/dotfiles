@@ -14,7 +14,7 @@ XTerm*secondaryScroll: 0
 
 XTerm*geometry: 80x24+540+200
 
-XTerm*faceName: Monospace:pixelsize=11:spacing=mono
+XTerm*faceName: Monospace:pixelsize=12:spacing=mono
 
 XTerm*scrollBar: false
 XTerm*urlLauncher: firefox
