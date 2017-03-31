@@ -68,6 +68,12 @@ map <C-p> :tabp<CR>
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
+" Netrw ======================================================================
+
+let g:netrw_banner=0
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+
 " Python mode plugin =========================================================
 
 let g:pymode_rope_complete_on_dot = 0
