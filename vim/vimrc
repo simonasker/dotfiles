@@ -1,47 +1,42 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 
+set nocompatible
 filetype plugin indent on
 syntax on
 
-set directory=~/.vim/swap
-
 colorscheme jellybeans
-set number              " display line numbers
-set cursorline          " highlight the current line
-set scrolloff=4         " Keep cursor 4 lines away form window edges
-set shiftwidth=4        " operation >> indents 4 columns; << unindents 4 columns
-set tabstop=4           " a hard TAB displays as 4 columns
-set expandtab           " insert spaces then hitting TABs
-set softtabstop=4       " insert/delete 4 spaces when hitting TAB/BACKSPACE
-set shiftround          " round indent to multiple of 'shiftwidth'
-set autoindent          " align the new line indent with the previous line
+
+set shiftround                  " round indent to multiple of 'shiftwidth'
+set shiftwidth=4                " operation >> indents 4 columns; << unindents 4 columns
+set softtabstop=4               " insert/delete 4 spaces when hitting TAB/BACKSPACE
+set tabstop=4                   " a hard TAB displays as 4 columns
+set autoindent                  " align the new line indent with the previous line
 set cindent
-set wildmode=longest,list,full      " sensible tab-completion behavior
-set wildmenu                        " extend tab-completion with interactive menu
+set expandtab                   " insert spaces then hitting TABs
+
+set hlsearch                    " hightlight matches
+set incsearch                   " seach as characters are entered
+
+set number                      " display line numbers
+set cursorline                  " highlight the current line
+set showcmd                     " show command in bottom bar
+set scrolloff=4                 " Keep cursor 4 lines away form window edges
+
+set directory=~/.vim/swap
 set laststatus=2
-set nocompatible
+set lazyredraw                  " redraw only when we need to
+set path+=**
+set wildmenu                    " extend tab-completion with interactive menu
+set wildmode=longest,list,full  " sensible tab-completion behavior
 
-set showcmd " show command in bottom bar
-set lazyredraw " redraw only when we need to
-set showmatch " highlight matching [{()}]
-set incsearch " seach as characters are entered
-set hlsearch " hightlight matches
-
-set foldenable " enable folding
-set foldlevelstart=10 " open most folds by default
+set foldenable                  " enable folding
+set foldlevelstart=10           " open most folds by default
 set foldnestmax=10
+set foldmethod=indent           " fold based on indent level
 
-" space open/closes folds
-nnoremap <space> za
-set foldmethod=indent " fold based on indent level
 
-" move vertically by visual line
-nnoremap j gj
-nnoremap k gk
-
-" highlight last inserted text
-nnoremap gV `[v`]
+" Auto commands ==============================================================
 
 " Remove trailing whitespaces when writing a buffer to file
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -49,7 +44,16 @@ autocmd BufWritePre * :%s/\s\+$//ge
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
 
-let mapleader = "," " leader is comma
+" Key bindings ===============================================================
+
+let mapleader = ","
+
+" space open/closes folds
+nnoremap <space> za
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
 
 " kj is escape
 inoremap kj <Esc>
@@ -62,30 +66,12 @@ noremap L $
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
-" New from practical vim
-
-" Testing
-nnoremap <silent> åb :bprevious<CR>
-
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
-" Vim-Fugitive
-
-" set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
-" PythonMode
+" Python mode plugin =========================================================
 
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope = 0
 let g:pymode_options_max_line_length = 79
 let g:pymode_options_colorcolumn = 0
 let g:pymode_folding = 0
-
-" vim-airline
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='jellybeans'
-
-" NERDTree
-
-nnoremap <leader>t :NERDTreeToggle<CR>
