@@ -5,7 +5,6 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
-colorscheme jellybeans
 
 set shiftround                  " round indent to multiple of 'shiftwidth'
 set shiftwidth=4                " operation >> indents 4 columns; << unindents 4 columns
@@ -25,6 +24,7 @@ set scrolloff=4                 " Keep cursor 4 lines away form window edges
 
 set directory=~/.vim/swap
 set laststatus=2
+set ttyfast
 set lazyredraw                  " redraw only when we need to
 set path+=**
 set wildmenu                    " extend tab-completion with interactive menu
@@ -35,6 +35,8 @@ set foldlevelstart=10           " open most folds by default
 set foldnestmax=10
 set foldmethod=indent           " fold based on indent level
 
+set report=0
+
 
 " Auto commands ==============================================================
 
@@ -43,6 +45,8 @@ autocmd BufWritePre * :%s/\s\+$//ge
 
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
+
+autocmd ColorScheme * highlight StatusLine ctermbg=darkgray ctermfg=white cterm=NONE
 
 " Key bindings ===============================================================
 
@@ -81,3 +85,5 @@ let g:pymode_rope = 0
 let g:pymode_options_max_line_length = 79
 let g:pymode_options_colorcolumn = 0
 let g:pymode_folding = 0
+
+colorscheme jellybeans
