@@ -35,6 +35,9 @@ set foldlevelstart=10           " open most folds by default
 set foldnestmax=10
 set foldmethod=indent           " fold based on indent level
 
+set splitright
+set splitbelow
+
 set report=0
 
 
@@ -66,11 +69,18 @@ inoremap kj <Esc>
 noremap H ^
 noremap L $
 
+" Easier split navigation
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
 " Cycle through tabs like in firefox
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+" TODO Collides with split navigation
+" nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " Netrw ======================================================================
 
