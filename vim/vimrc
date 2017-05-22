@@ -5,6 +5,9 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
+set t_Co=256
+colorscheme solarized
+set background=dark
 
 set shiftround                  " round indent to multiple of 'shiftwidth'
 set shiftwidth=4                " operation >> indents 4 columns; << unindents 4 columns
@@ -48,8 +51,6 @@ autocmd BufWritePre * :%s/\s\+$//ge
 
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
-
-autocmd ColorScheme * highlight StatusLine ctermbg=darkgray ctermfg=white cterm=NONE
 
 " Key bindings ===============================================================
 
@@ -95,5 +96,3 @@ let g:pymode_rope = 0
 let g:pymode_options_max_line_length = 79
 let g:pymode_options_colorcolumn = 0
 let g:pymode_folding = 0
-
-colorscheme jellybeans
