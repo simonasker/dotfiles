@@ -89,6 +89,15 @@ let g:netrw_banner=0
 let g:netrw_altv=1
 let g:netrw_liststyle=3
 
+" Vim Airline ================================================================
+
+"let g:airline_extensions = ['branch', 'tabline', 'whitespace']
+let g:airline_extensions = ['tabline', 'whitespace']
+let g:airline_powerline_fonts = 1
+let g:airline_symbols_ascii = 1
+let g:airline_detect_modified=1
+let g:airline_inactive_collapse=1
+
 " Python mode plugin =========================================================
 
 let g:pymode_rope_complete_on_dot = 0
