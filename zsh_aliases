@@ -1,0 +1,5 @@
+alias ls='ls -F --color=auto'
+alias ll='ls -l'
+alias grep='grep --color=auto'
+
+alias todo='vim ~/notes/todo.txt'
