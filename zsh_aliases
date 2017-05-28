@@ -3,3 +3,4 @@ alias ll='ls -l'
 alias grep='grep --color=auto'
 
 alias todo='vim ~/notes/todo.txt'
+alias tmux='TERM=screen-256color tmux'
