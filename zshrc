@@ -25,7 +25,14 @@ RPROMPT='[%F{yellow}%?%f]'
 if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
+#
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Setup virtualenv
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-export WORKON_HOME=~/virtenvs
+export WORKON_HOME=~/.virtenvs
