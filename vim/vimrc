@@ -6,8 +6,7 @@ filetype plugin indent on
 syntax on
 
 set t_Co=256
-colorscheme solarized
-set background=dark
+colorscheme jellybeans
 
 set shiftround                  " round indent to multiple of 'shiftwidth'
 set shiftwidth=4                " operation >> indents 4 columns; << unindents 4 columns
