@@ -21,6 +21,8 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 PROMPT='%F{green}%n%f@%F{blue}%m%f %F{yellow}%~%f %# '
 RPROMPT='[%F{yellow}%?%f]'
 
+# Do not exit shell on Ctrl+D
+# setopt IGNORE_EOF
 
 if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
@@ -35,4 +37,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Setup virtualenv
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-export WORKON_HOME=~/.virtenvs
+export WORKON_HOME=~/virtenvs
+
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
