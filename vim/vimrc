@@ -6,7 +6,9 @@ filetype plugin indent on
 syntax on
 
 set t_Co=256
+
 colorscheme jellybeans
+" colorscheme zellner
 
 set shiftround                  " round indent to multiple of 'shiftwidth'
 set shiftwidth=4                " operation >> indents 4 columns; << unindents 4 columns
@@ -42,6 +44,10 @@ set splitbelow
 
 set report=0
 
+" Commands ===================================================================
+
+command Dark :colorscheme jellybeans | :AirlineTheme jellybeans
+command Light :colorscheme pencil | :AirlineTheme cool
 
 " Auto commands ==============================================================
 
@@ -94,6 +100,7 @@ let g:airline_extensions = ['tabline', 'whitespace']
 let g:airline_symbols_ascii = 1
 let g:airline_detect_modified=1
 let g:airline_inactive_collapse=1
+let g:airline_theme='jellybeans'
 
 " Python mode plugin =========================================================
 
