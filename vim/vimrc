@@ -24,6 +24,7 @@ set incsearch                   " seach as characters are entered
 set number                      " display line numbers
 set cursorline                  " highlight the current line
 set showcmd                     " show command in bottom bar
+set showtabline=2               " always show the tabline
 set scrolloff=4                 " Keep cursor 4 lines away form window edges
 
 set directory=~/.vim/swap
