@@ -8,42 +8,28 @@ syntax on
 set t_Co=256
 
 colorscheme jellybeans
-" colorscheme zellner
 
-set shiftround                  " round indent to multiple of 'shiftwidth'
-set shiftwidth=4                " operation >> indents 4 columns; << unindents 4 columns
-set softtabstop=4               " insert/delete 4 spaces when hitting TAB/BACKSPACE
-set tabstop=4                   " a hard TAB displays as 4 columns
-set autoindent                  " align the new line indent with the previous line
-set cindent
-set expandtab                   " insert spaces then hitting TABs
-
-set hlsearch                    " hightlight matches
-set incsearch                   " seach as characters are entered
-
-set number                      " display line numbers
-set cursorline                  " highlight the current line
-set showcmd                     " show command in bottom bar
-set showtabline=2               " always show the tabline
+set autoindent                  " Start new lines on the same indent level as the current line
+set cursorline                  " Highlight the current line
+set directory=~/.vim/swap       " Specify where swap files are placed
+set expandtab                   " Insert the appropriate number of spaces instead of tabs
+set hlsearch                    " Hightlight matches
+set incsearch                   " Start searchin as soon as characters are entered
+set laststatus=2                " Always display the status line
+set number                      " Display line numbers
+set report=0                    " Always report how many lines are changed
 set scrolloff=4                 " Keep cursor 4 lines away form window edges
-
-set directory=~/.vim/swap
-set laststatus=2
-set ttyfast
-set lazyredraw                  " redraw only when we need to
-set path+=**
-set wildmenu                    " extend tab-completion with interactive menu
-set wildmode=longest,list,full  " sensible tab-completion behavior
-
-set foldenable                  " enable folding
-set foldlevelstart=10           " open most folds by default
-set foldnestmax=10
-set foldmethod=indent           " fold based on indent level
-
-set splitright
-set splitbelow
-
-set report=0
+set shiftround                  " Round indent to multiple of 'shiftwidth'
+set shiftwidth=4                " >> indents 4 columns; << unindents 4 columns
+set showcmd                     " Show command in bottom bar
+set showtabline=2               " Always show the tabline
+set softtabstop=4               " Insert/delete 4 spaces when hitting TAB/BACKSPACE
+set splitbelow                  " New window is placed below the current one
+set splitright                  " New window is placed to the right of the current one
+set tabstop=4                   " A hard TAB displays as 4 columns
+set ttyfast                     " Better terminal performance
+set wildmenu                    " Extend tab-completion with interactive menu
+set wildmode=longest,list,full  " Sensible tab-completion behavior
 
 " Commands ===================================================================
 
