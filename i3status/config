@@ -34,6 +34,8 @@ battery all {
         format = "%status %percentage %remaining"
         integer_battery_capacity = true
         hide_seconds = true
+        # false: Show percentage of the original capacity.
+        # true: Show percentage of the capacity last time the battery was full
         last_full_capacity = true
 }
 
