@@ -8,6 +8,7 @@ syntax on
 set t_Co=256
 
 colorscheme jellybeans
+set bg=dark
 
 set autoindent                  " Start new lines on the same indent level as the current line
 set cursorline                  " Highlight the current line
@@ -17,6 +18,7 @@ set hlsearch                    " Hightlight matches
 set incsearch                   " Start searchin as soon as characters are entered
 set laststatus=2                " Always display the status line
 set lbr
+set lazyredraw
 set number                      " Display line numbers
 set report=0                    " Always report how many lines are changed
 set scrolloff=4                 " Keep cursor 4 lines away form window edges
@@ -46,8 +48,12 @@ command Light :colorscheme pencil | :AirlineTheme cool
 
 " Auto commands ==============================================================
 
-" Remove trailing whitespaces when writing a buffer to file
+" Remove trailing whitespaces when saving
 autocmd BufWritePre * :%s/\s\+$//ge
+
+
+" Remove empty lines at the end of file when saving (needs some tweaking)
+" autocmd BufWritePre * :%s#\($\n\s*\)\+\%$##
 
 " autocmd FileType html :setlocal sw=2 ts=2 sts=2 " Two spaces for HTML files
 
@@ -82,6 +88,10 @@ nnoremap <C-L> <C-W><C-L>
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
+" Keep selection after changing indent level
+vnoremap > ><CR>gv
+vnoremap < <<CR>gv
+
 " TODO Collides with split navigation
 " nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
@@ -93,16 +103,16 @@ let g:netrw_liststyle=3
 
 " Vim Airline ================================================================
 
-let g:airline_extensions = ['tabline', 'whitespace']
-let g:airline_symbols_ascii = 1
-let g:airline_detect_modified=1
-let g:airline_inactive_collapse=1
-let g:airline_theme='jellybeans'
+" let g:airline_extensions = ['tabline', 'whitespace']
+" let g:airline_symbols_ascii = 1
+" let g:airline_detect_modified=1
+" let g:airline_inactive_collapse=1
+" let g:airline_theme='jellybeans'
 
-" Python mode plugin =========================================================
+" " Python mode plugin =========================================================
 
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope = 0
-let g:pymode_options_max_line_length = 79
-let g:pymode_options_colorcolumn = 0
-let g:pymode_folding = 0
+" let g:pymode_rope_complete_on_dot = 0
+" let g:pymode_rope = 0
+" let g:pymode_options_max_line_length = 79
+" let g:pymode_options_colorcolumn = 0
+" let g:pymode_folding = 0

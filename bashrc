@@ -116,9 +116,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Setup virtualenv
+# Setup virtualenv (old home setup)
 # source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 # export WORKON_HOME=~/virtenvs
+
+# Mullvad virtualenv setup
+source /usr/bin/virtualenvwrapper.sh
+export WORKON_HOME=~/.virtenvs
 
 # Colored man pages
 man() {
@@ -131,3 +135,6 @@ man() {
     LESS_TERMCAP_us=$'\e'"[1;32m" \
     command man "$@"
 }
+
+# added by travis gem
+[ -f /home/user/.travis/travis.sh ] && source /home/user/.travis/travis.sh
