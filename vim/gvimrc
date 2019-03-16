@@ -3,7 +3,7 @@ syntax on
 
 colorscheme jellybeans
 
-set guifont="DejaVu Monospace 6"
+set guifont=DejaVu\ Sans\ Mono\ 9
 
 set guioptions-=T
 set guioptions-=m
