@@ -7,7 +7,7 @@ syntax on
 
 set t_Co=256
 
-colorscheme zenburn
+colorscheme jellybeans
 
 set autoindent                  " Start new lines on the same indent level as the current line
 set cursorline                  " Highlight the current line
@@ -16,6 +16,7 @@ set expandtab                   " Insert the appropriate number of spaces instea
 set hlsearch                    " Hightlight matches
 set incsearch                   " Start searchin as soon as characters are entered
 set laststatus=2                " Always display the status line
+set lbr
 set number                      " Display line numbers
 set report=0                    " Always report how many lines are changed
 set scrolloff=4                 " Keep cursor 4 lines away form window edges
@@ -31,6 +32,8 @@ set ttyfast                     " Better terminal performance
 set wildmenu                    " Extend tab-completion with interactive menu
 set wildmode=longest,list,full  " Sensible tab-completion behavior
 
+set textwidth=100
+
 set splitright
 set splitbelow
 set report=0
@@ -45,6 +48,8 @@ command Light :colorscheme pencil | :AirlineTheme cool
 
 " Remove trailing whitespaces when writing a buffer to file
 autocmd BufWritePre * :%s/\s\+$//ge
+
+" autocmd FileType html :setlocal sw=2 ts=2 sts=2 " Two spaces for HTML files
 
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown

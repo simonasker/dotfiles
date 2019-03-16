@@ -1,6 +1,8 @@
 filetype plugin indent on
 syntax on
 
+set guifont="DejaVu Monospace 6"
+
 set guioptions-=T
 set guioptions-=m
 set guioptions-=L
