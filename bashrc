@@ -1,7 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -25,7 +21,7 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -84,9 +80,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # some more ls aliases
 alias ll='ls -lF'
 alias la='ls -A'
@@ -116,14 +109,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Setup virtualenv (old home setup)
-# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-# export WORKON_HOME=~/virtenvs
-
-# Mullvad virtualenv setup
-source /usr/bin/virtualenvwrapper.sh
-export WORKON_HOME=~/.virtenvs
-
 # Colored man pages
 man() {
     LESS_TERMCAP_mb=$'\e'"[1;31m" \
@@ -136,5 +121,6 @@ man() {
     command man "$@"
 }
 
-# added by travis gem
-[ -f /home/user/.travis/travis.sh ] && source /home/user/.travis/travis.sh
+if [ -f ~/.bash_mullvad ]; then
+    . ~/.bash_mullvad
+fi
