@@ -117,8 +117,8 @@ if ! shopt -oq posix; then
 fi
 
 # Setup virtualenv
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-export WORKON_HOME=~/virtenvs
+# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# export WORKON_HOME=~/virtenvs
 
 # Colored man pages
 man() {
