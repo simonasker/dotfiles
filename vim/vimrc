@@ -32,6 +32,8 @@ set splitright                  " New window is placed to the right of the curre
 set tabstop=4                   " A hard TAB displays as 4 columns
 set ttyfast                     " Better terminal performance
 set wildmenu                    " Extend tab-completion with interactive menu
+set ignorecase                  " Case-insensitive searching
+set smartcase                   " Case-sensitive searching only when including capitcals. Requries 'ignorecase'
 set wildmode=longest,list,full  " Sensible tab-completion behavior
 
 set textwidth=100
@@ -104,7 +106,7 @@ let g:netrw_liststyle=3
 " NERDTree ===================================================================
 
 " map <C-n> :NERDTreeToggle<CR>
-map <C-a> :NERDTreeFocus<CR>
+" map <C-a> :NERDTreeFocus<CR>
 
 " Vim Airline ================================================================
 
