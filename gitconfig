@@ -10,6 +10,10 @@
 [alias]
     co = checkout
     br = branch -avv
-    ci = commit
+    ci = commit --verbose
     st = status
     gr = log --graph --oneline --decorate --all
+    dc = diff --cached
+    pom = push origin master
+[merge]
+    tool = vimdiff
