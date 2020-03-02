@@ -43,16 +43,9 @@ set splitbelow
 set report=0
 set belloff=all
 
-" Commands ===================================================================
-
-command Dark :colorscheme jellybeans | :AirlineTheme jellybeans
-command Light :colorscheme pencil | :AirlineTheme cool
-
-" Auto commands ==============================================================
 
 " Remove trailing whitespaces when saving
 autocmd BufWritePre * :%s/\s\+$//ge
-
 
 " Remove empty lines at the end of file when saving (needs some tweaking)
 " autocmd BufWritePre * :%s#\($\n\s*\)\+\%$##
@@ -97,11 +90,22 @@ vnoremap < <<CR>gv
 " TODO Collides with split navigation
 " nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
+
+" Edit vimr configuration file
+nnoremap <Leader>ve :e $MYVIMRC<CR>
+" " Reload vimr configuration file
+nnoremap <Leader>vr :source $MYVIMRC<CR>
+
 " Netrw ======================================================================
 
 let g:netrw_banner=0
 let g:netrw_altv=1
 let g:netrw_liststyle=3
+
+" Vimwiki ====================================================================
+
+:nmap <Leader>d <Plug>VimwikiMakeDiaryNote
+let g:vimwiki_folding = 'list:quick'
 
 " NERDTree ===================================================================
 
@@ -116,31 +120,23 @@ let g:netrw_liststyle=3
 " let g:airline_inactive_collapse=1
 " let g:airline_theme='jellybeans'
 
-" " Python mode plugin =========================================================
-
-" let g:pymode_rope_complete_on_dot = 0
-" let g:pymode_rope = 0
-" let g:pymode_options_max_line_length = 79
-" let g:pymode_options_colorcolumn = 0
-" let g:pymode_folding = 0
-
 " rust.vim ====================================================================
 "
-let g:rustfmt_autosave = 1
+" let g:rustfmt_autosave = 1
 
 " Syntastic ===================================================================
 "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
 
-let g:syntastic_python_checkers = ['flake8', 'pylint']
+" let g:syntastic_python_checkers = ['flake8', 'pylint']
 
-" TODO These dont work properly
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'npx eslint --'
+" " TODO These dont work properly
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exe = 'npx eslint --'
