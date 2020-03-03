@@ -36,21 +36,20 @@ set ignorecase                  " Case-insensitive searching
 set smartcase                   " Case-sensitive searching only when including capitcals. Requries 'ignorecase'
 set wildmode=longest,list,full  " Sensible tab-completion behavior
 
-set textwidth=100
-
 set splitright
 set splitbelow
 set report=0
 set belloff=all
 
-
 " Remove trailing whitespaces when saving
 autocmd BufWritePre * :%s/\s\+$//ge
 
-" Remove empty lines at the end of file when saving (needs some tweaking)
-" autocmd BufWritePre * :%s#\($\n\s*\)\+\%$##
+" Auto-format javascript files with Prettier
+autocmd BufWritePre *.ts,*.vue :Prettier
+autocmd BufWritePre *.ts setfiletype typescript
 
-" autocmd FileType html :setlocal sw=2 ts=2 sts=2 " Two spaces for HTML files
+" Two spaces for typescript files
+autocmd FileType typescript :setlocal sw=2 ts=2 sts=2
 
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
@@ -58,9 +57,6 @@ autocmd BufNewFile,BufRead *.md set syntax=markdown
 " Key bindings ===============================================================
 
 let mapleader = ","
-
-" space open/closes folds
-nnoremap <space> za
 
 " move vertically by visual line
 nnoremap j gj
@@ -79,21 +75,19 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
-" Cycle through tabs like in firefox
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
+
+" Switch between current and last file
+nnoremap <C-m> <C-^>
 
 " Keep selection after changing indent level
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
 
-" TODO Collides with split navigation
-" nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
-
 " Edit vimr configuration file
 nnoremap <Leader>ve :e $MYVIMRC<CR>
-" " Reload vimr configuration file
+" Reload vimr configuration file
 nnoremap <Leader>vr :source $MYVIMRC<CR>
 
 " Netrw ======================================================================
@@ -107,13 +101,15 @@ let g:netrw_liststyle=3
 :nmap <Leader>d <Plug>VimwikiMakeDiaryNote
 let g:vimwiki_folding = 'list:quick'
 
-" NERDTree ===================================================================
+" CtrlP =======================================================================
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" map <C-n> :NERDTreeToggle<CR>
-" map <C-a> :NERDTreeFocus<CR>
+" git-gutter ==================================================================
+set updatetime=100
 
 " Vim Airline ================================================================
-
 " let g:airline_extensions = ['tabline', 'whitespace']
 " let g:airline_symbols_ascii = 1
 " let g:airline_detect_modified=1
@@ -121,22 +117,14 @@ let g:vimwiki_folding = 'list:quick'
 " let g:airline_theme='jellybeans'
 
 " rust.vim ====================================================================
-"
 " let g:rustfmt_autosave = 1
 
 " Syntastic ===================================================================
-"
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
-
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 0
 " let g:syntastic_check_on_wq = 0
-
 " let g:syntastic_python_checkers = ['flake8', 'pylint']
-
-" " TODO These dont work properly
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_eslint_exe = 'npx eslint --'
