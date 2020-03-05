@@ -79,16 +79,24 @@ map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
 " Switch between current and last file
-nnoremap <C-m> <C-^>
+" nnoremap <C-m> <C-^>
+"
+" From DAS
+nnoremap <CR> :nohlsearch<cr>
+imap <c-c> <esc>
+nnoremap <leader><leader> <c-^>
+map <leader>y "+y
+command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
+nnoremap <leader>it :InsertTime<cr>
 
 " Keep selection after changing indent level
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
 
 " Edit vimr configuration file
-nnoremap <Leader>ve :e $MYVIMRC<CR>
+nnoremap <leader>ve :e $MYVIMRC<CR>
 " Reload vimr configuration file
-nnoremap <Leader>vr :source $MYVIMRC<CR>
+nnoremap <leader>vr :source $MYVIMRC<CR>
 
 " Netrw ======================================================================
 
