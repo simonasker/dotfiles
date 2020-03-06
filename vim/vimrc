@@ -15,7 +15,7 @@ set cursorline                  " Highlight the current line
 set directory=~/.vim/swap       " Specify where swap files are placed
 set expandtab                   " Insert the appropriate number of spaces instead of tabs
 set hlsearch                    " Hightlight matches
-set incsearch                   " Start searchin as soon as characters are entered
+set incsearch                   " Start searching as soon as characters are entered
 set laststatus=2                " Always display the status line
 set lbr
 set lazyredraw
@@ -24,7 +24,6 @@ set report=0                    " Always report how many lines are changed
 set scrolloff=4                 " Keep cursor 4 lines away form window edges
 set shiftround                  " Round indent to multiple of 'shiftwidth'
 set shiftwidth=4                " >> indents 4 columns; << unindents 4 columns
-set showcmd                     " Show command in bottom bar
 set showtabline=2               " Always show the tabline
 set softtabstop=4               " Insert/delete 4 spaces when hitting TAB/BACKSPACE
 set splitbelow                  " New window is placed below the current one
@@ -34,12 +33,11 @@ set ttyfast                     " Better terminal performance
 set wildmenu                    " Extend tab-completion with interactive menu
 set ignorecase                  " Case-insensitive searching
 set smartcase                   " Case-sensitive searching only when including capitcals. Requries 'ignorecase'
-set wildmode=longest,list,full  " Sensible tab-completion behavior
-
-set splitright
-set splitbelow
-set report=0
+set wildmode=list:full
 set belloff=all
+set path+=** " Recursive search when using :find
+set complete-=t " Remove tags from autocompletion
+" set complete-=i " Remove included files from autocompletion
 
 " Remove trailing whitespaces when saving
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -54,9 +52,11 @@ autocmd FileType typescript :setlocal sw=2 ts=2 sts=2
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
 
-" Key bindings ===============================================================
 
-let mapleader = ","
+" Commands
+command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
+
+" Key bindings ===============================================================
 
 " move vertically by visual line
 nnoremap j gj
@@ -66,43 +66,58 @@ nnoremap k gk
 inoremap kj <Esc>
 
 " move to beginning/end of line
+" TODO Lookup what these overwrite
 noremap H ^
 noremap L $
 
 " Easier split navigation
+" TODO Loopkup what these overwrite
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
+" TODO Loopkup what these overwrite
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
-" Switch between current and last file
-" nnoremap <C-m> <C-^>
-"
-" From DAS
+" Clear search highlights with return
 nnoremap <CR> :nohlsearch<cr>
-imap <c-c> <esc>
-nnoremap <leader><leader> <c-^>
-map <leader>y "+y
-command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
-nnoremap <leader>it :InsertTime<cr>
 
 " Keep selection after changing indent level
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
+
+
+" Leader bindings
+let mapleader=" "
+
+nnoremap <leader>f :find<space>
+
+" Easier yank to clipboard
+map <leader>y "+y
+
+" Switch between current and last file
+" nnoremap <C-m> <C-^>
+nnoremap <leader><leader> <C-^>
 
 " Edit vimr configuration file
 nnoremap <leader>ve :e $MYVIMRC<CR>
 " Reload vimr configuration file
 nnoremap <leader>vr :source $MYVIMRC<CR>
 
+" Snippets
+nnoremap <leader>html :-1read ~/.vim/snippets/skeleton.html<cr>/INS<cr>ciw
+
+" Abbreviations
+ab con console.log()<left>
+ab print println!("{}",
+
 " Netrw ======================================================================
 
-let g:netrw_banner=0
-let g:netrw_altv=1
-let g:netrw_liststyle=3
+let g:netrw_banner=0 " disable annoying banner
+let g:netrw_altv=1 " opens splits to the right
+let g:netrw_liststyle=3 " tree view
 
 " Vimwiki ====================================================================
 
