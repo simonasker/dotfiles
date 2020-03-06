@@ -19,7 +19,6 @@ set incsearch                   " Start searching as soon as characters are ente
 set laststatus=2                " Always display the status line
 set lbr
 set lazyredraw
-set number                      " Display line numbers
 set report=0                    " Always report how many lines are changed
 set scrolloff=4                 " Keep cursor 4 lines away form window edges
 set shiftround                  " Round indent to multiple of 'shiftwidth'
@@ -35,6 +34,8 @@ set ignorecase                  " Case-insensitive searching
 set smartcase                   " Case-sensitive searching only when including capitcals. Requries 'ignorecase'
 set wildmode=list:full
 set belloff=all
+
+set number relativenumber " Display line numbers
 set path+=** " Recursive search when using :find
 set complete-=t " Remove tags from autocompletion
 " set complete-=i " Remove included files from autocompletion
@@ -57,6 +58,9 @@ autocmd BufNewFile,BufRead *.md set syntax=markdown
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 
 " Key bindings ===============================================================
+
+" Stay on the current word when using * to search
+nnoremap * *N
 
 " move vertically by visual line
 nnoremap j gj
@@ -88,8 +92,8 @@ nnoremap <CR> :nohlsearch<cr>
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
 
-
 " Leader bindings
+
 let mapleader=" "
 
 nnoremap <leader>f :find<space>
