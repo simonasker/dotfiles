@@ -5,40 +5,49 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
-set t_Co=256
-
+" Colors
 colorscheme jellybeans
 set bg=dark
+set t_Co=256
 
+" Indentation
 set autoindent                  " Start new lines on the same indent level as the current line
-set cursorline                  " Highlight the current line
-set directory=~/.vim/swap       " Specify where swap files are placed
 set expandtab                   " Insert the appropriate number of spaces instead of tabs
-set hlsearch                    " Hightlight matches
-set incsearch                   " Start searching as soon as characters are entered
-set laststatus=2                " Always display the status line
-set lbr
-set lazyredraw
-set report=0                    " Always report how many lines are changed
-set scrolloff=4                 " Keep cursor 4 lines away form window edges
 set shiftround                  " Round indent to multiple of 'shiftwidth'
 set shiftwidth=4                " >> indents 4 columns; << unindents 4 columns
-set showtabline=2               " Always show the tabline
 set softtabstop=4               " Insert/delete 4 spaces when hitting TAB/BACKSPACE
+set tabstop=4                   " A hard TAB displays as 4 columns
+
+" Searching
+set hlsearch                    " Hightlight matches
+set ignorecase                  " Case-insensitive searching
+set incsearch                   " Start searching as soon as characters are entered
+set smartcase                   " Case-sensitive searching only when including capitcals. Requries 'ignorecase'
+
+" Interface
+set cursorline                  " Highlight the current line
+set report=0                    " Always report how many lines are changed
+set scrolloff=4                 " Keep cursor 4 lines away form window edges
+set number                      " Display line numbers
+set showtabline=2               " Always show the tabline
+set laststatus=2                " Always display the status line
+
+" File navigation
+set path+=**                    " Recursive search when using :find
+set wildmenu                    " Extend tab-completion with interactive menu
+set wildmode=list:full
+
+" Misc
+set belloff=all
+set directory=~/.vim/swap       " Specify where swap files are placed
+set lazyredraw
+set linebreak
 set splitbelow                  " New window is placed below the current one
 set splitright                  " New window is placed to the right of the current one
-set tabstop=4                   " A hard TAB displays as 4 columns
 set ttyfast                     " Better terminal performance
-set wildmenu                    " Extend tab-completion with interactive menu
-set ignorecase                  " Case-insensitive searching
-set smartcase                   " Case-sensitive searching only when including capitcals. Requries 'ignorecase'
-set wildmode=list:full
-set belloff=all
+set complete-=t                 " Exclude tags for quicker autocompletion
 
-set number relativenumber " Display line numbers
-set path+=** " Recursive search when using :find
-set complete-=t " Remove tags from autocompletion
-" set complete-=i " Remove included files from autocompletion
+" Autocommands ===============================================================
 
 " Remove trailing whitespaces when saving
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -53,20 +62,16 @@ autocmd FileType typescript :setlocal sw=2 ts=2 sts=2
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
 
-
-" Commands
-command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
-
 " Key bindings ===============================================================
 
 " Stay on the current word when using * to search
 nnoremap * *N
 
-" move vertically by visual line
+" move vertically over wrapped lines
 nnoremap j gj
 nnoremap k gk
 
-" kj is escape
+" Bind kj to escape
 inoremap kj <Esc>
 
 " move to beginning/end of line
@@ -85,14 +90,11 @@ nnoremap <C-L> <C-W><C-L>
 map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 
-" Clear search highlights with return
-nnoremap <CR> :nohlsearch<cr>
-
 " Keep selection after changing indent level
-vnoremap > ><CR>gv
-vnoremap < <<CR>gv
+" vnoremap > ><CR>gv
+" vnoremap < <<CR>gv
 
-" Leader bindings
+" Leader bindings ============================================================
 
 let mapleader=" "
 
@@ -105,53 +107,36 @@ map <leader>y "+y
 " nnoremap <C-m> <C-^>
 nnoremap <leader><leader> <C-^>
 
-" Edit vimr configuration file
+" Clear search highlights
+nnoremap <leader><CR> :nohlsearch<cr>
+
+" Edit vimrc
 nnoremap <leader>ve :e $MYVIMRC<CR>
-" Reload vimr configuration file
+
+" Reload vimrc
 nnoremap <leader>vr :source $MYVIMRC<CR>
 
 " Snippets
 nnoremap <leader>html :-1read ~/.vim/snippets/skeleton.html<cr>/INS<cr>ciw
 
 " Abbreviations
+" TODO Find a way to make settings like this apply only to certain filetypes
 ab con console.log()<left>
-ab print println!("{}",
+ab dprint println!("{:?}",
 
-" Netrw ======================================================================
+" Plugin settings ============================================================
 
 let g:netrw_banner=0 " disable annoying banner
 let g:netrw_altv=1 " opens splits to the right
 let g:netrw_liststyle=3 " tree view
 
-" Vimwiki ====================================================================
-
-:nmap <Leader>d <Plug>VimwikiMakeDiaryNote
-let g:vimwiki_folding = 'list:quick'
-
-" CtrlP =======================================================================
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" git-gutter ==================================================================
-set updatetime=100
+let g:rustfmt_autosave = 1
 
-" Vim Airline ================================================================
-" let g:airline_extensions = ['tabline', 'whitespace']
-" let g:airline_symbols_ascii = 1
-" let g:airline_detect_modified=1
-" let g:airline_inactive_collapse=1
-" let g:airline_theme='jellybeans'
-
-" rust.vim ====================================================================
-" let g:rustfmt_autosave = 1
-
-" Syntastic ===================================================================
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_python_checkers = ['flake8', 'pylint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
