@@ -20,13 +20,13 @@ set tabstop=4                   " A hard TAB displays as 4 columns
 
 " Searching
 set hlsearch                    " Hightlight matches
-set ignorecase                  " Case-insensitive searching
+" set ignorecase                  " Case-insensitive searching
 set incsearch                   " Start searching as soon as characters are entered
-set smartcase                   " Case-sensitive searching only when including capitcals. Requries 'ignorecase'
+" set smartcase                   " Case-sensitive searching only when including capitcals. Requries 'ignorecase'
 
 " Interface
 set cursorline                  " Highlight the current line
-set report=0                    " Always report how many lines are changed
+" set report=0                    " Always report how many lines are changed
 set scrolloff=4                 " Keep cursor 4 lines away form window edges
 set number                      " Display line numbers
 set showtabline=2               " Always show the tabline
@@ -38,13 +38,13 @@ set wildmenu                    " Extend tab-completion with interactive menu
 set wildmode=list:full
 
 " Misc
-set belloff=all
+" set belloff=all
 set directory=~/.vim/swap       " Specify where swap files are placed
 set lazyredraw
-set linebreak
+" set linebreak
 set splitbelow                  " New window is placed below the current one
 set splitright                  " New window is placed to the right of the current one
-set ttyfast                     " Better terminal performance
+" set ttyfast                     " Better terminal performance
 set complete-=t                 " Exclude tags for quicker autocompletion
 
 " Autocommands ===============================================================
@@ -64,31 +64,36 @@ autocmd BufNewFile,BufRead *.md set syntax=markdown
 
 " Key bindings ===============================================================
 
+" TODO Figure out if I need this
 " Stay on the current word when using * to search
-nnoremap * *N
+" nnoremap * *N
 
+" TODO Figure out if I need these
 " move vertically over wrapped lines
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 
 " Bind kj to escape
 inoremap kj <Esc>
 
+" TODO Figure out if I need these
 " move to beginning/end of line
 " TODO Lookup what these overwrite
-noremap H ^
-noremap L $
+" noremap H ^
+" noremap L $
 
+" TODO Figure out if I need these
 " Easier split navigation
 " TODO Loopkup what these overwrite
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
 
+" TODO Figure out if I need these
 " TODO Loopkup what these overwrite
-map <C-n> :tabn<CR>
-map <C-p> :tabp<CR>
+" map <C-n> :tabn<CR>
+" map <C-p> :tabp<CR>
 
 " Keep selection after changing indent level
 " vnoremap > ><CR>gv
@@ -117,12 +122,12 @@ nnoremap <leader>ve :e $MYVIMRC<CR>
 nnoremap <leader>vr :source $MYVIMRC<CR>
 
 " Snippets
-nnoremap <leader>html :-1read ~/.vim/snippets/skeleton.html<cr>/INS<cr>ciw
+" nnoremap <leader>html :-1read ~/.vim/snippets/skeleton.html<cr>/INS<cr>ciw
 
 " Abbreviations
 " TODO Find a way to make settings like this apply only to certain filetypes
-ab con console.log()<left>
-ab dprint println!("{:?}",
+" ab con console.log()<left>
+" ab dprint println!("{:?}",
 
 " Plugin settings ============================================================
 
