@@ -60,8 +60,8 @@ autocmd BufWritePre *.ts setfiletype typescript
 " reload when entering the buffer or gaining focus
 au FocusGained,BufEnter * :silent! !
 
-" Two spaces for typescript files
-autocmd FileType typescript :setlocal sw=2 ts=2 sts=2
+" Two space indent for certain file types
+autocmd FileType javascript,typescript,yaml,html :setlocal sw=2 ts=2 sts=2
 
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
@@ -107,7 +107,8 @@ inoremap kj <Esc>
 
 let mapleader=" "
 
-nnoremap <leader>f :find<space>
+nnoremap <leader>f :FZF<cr>
+nnoremap <leader>t :terminal<cr>
 
 " Easier yank to clipboard
 map <leader>y "+y
@@ -134,6 +135,8 @@ nnoremap <leader>vr :source $MYVIMRC<CR>
 " ab dprint println!("{:?}",
 
 " Plugin settings ============================================================
+
+let $FZF_DEFAULT_COMMAND = 'fdfind --type f --follow --exclude .git'
 
 let g:netrw_banner=0 " disable annoying banner
 let g:netrw_altv=1 " opens splits to the right
