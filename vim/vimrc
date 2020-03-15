@@ -3,12 +3,12 @@ execute pathogen#helptags()
 
 set nocompatible
 filetype plugin indent on
-syntax on
+syntax enable
 
 " Colors
-colorscheme jellybeans
 set bg=dark
-set t_Co=256
+colorscheme solarized
+" set t_Co=256
 
 " Indentation
 set autoindent                  " Start new lines on the same indent level as the current line
@@ -108,7 +108,7 @@ inoremap kj <Esc>
 let mapleader=" "
 
 nnoremap <leader>f :FZF<cr>
-nnoremap <leader>t :terminal<cr>
+nnoremap <leader>t :terminal++close<cr>
 
 " Easier yank to clipboard
 map <leader>y "+y
@@ -136,7 +136,7 @@ nnoremap <leader>vr :source $MYVIMRC<CR>
 
 " Plugin settings ============================================================
 
-let $FZF_DEFAULT_COMMAND = 'fdfind --type f --follow --exclude .git'
+let $FZF_DEFAULT_COMMAND = 'fd --type f --follow --exclude .git'
 
 let g:netrw_banner=0 " disable annoying banner
 let g:netrw_altv=1 " opens splits to the right
@@ -146,7 +146,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-let g:rustfmt_autosave = 1
+" let g:rustfmt_autosave = 1
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
