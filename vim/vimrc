@@ -6,12 +6,13 @@ filetype plugin indent on
 syntax enable
 
 " Colors
-set bg=dark
 colorscheme solarized
 " set t_Co=256
 
 " Indentation
 set autoindent                  " Start new lines on the same indent level as the current line
+set smartindent
+set smarttab
 set expandtab                   " Insert the appropriate number of spaces instead of tabs
 set shiftround                  " Round indent to multiple of 'shiftwidth'
 set shiftwidth=4                " >> indents 4 columns; << unindents 4 columns
@@ -20,13 +21,13 @@ set tabstop=4                   " A hard TAB displays as 4 columns
 
 " Searching
 set hlsearch                    " Hightlight matches
-" set ignorecase                  " Case-insensitive searching
 set incsearch                   " Start searching as soon as characters are entered
+" set ignorecase                  " Case-insensitive searching
 " set smartcase                   " Case-sensitive searching only when including capitcals. Requries 'ignorecase'
 
 " Interface
 set cursorline                  " Highlight the current line
-" set report=0                    " Always report how many lines are changed
+set report=0                    " Always report how many lines are changed
 set scrolloff=4                 " Keep cursor 4 lines away form window edges
 set number                      " Display line numbers
 set showtabline=2               " Always show the tabline
@@ -35,7 +36,7 @@ set laststatus=2                " Always display the status line
 " File navigation
 set path+=**                    " Recursive search when using :find
 set wildmenu                    " Extend tab-completion with interactive menu
-set wildmode=list:full
+set wildmode=longest,list,full
 
 " Misc
 set autoread
@@ -48,6 +49,8 @@ set splitright                  " New window is placed to the right of the curre
 " set ttyfast                     " Better terminal performance
 set complete-=t                 " Exclude tags for quicker autocompletion
 
+set termwinkey=<C-l>
+
 " Autocommands ===============================================================
 
 " Remove trailing whitespaces when saving
@@ -58,41 +61,36 @@ autocmd BufWritePre *.ts,*.vue :Prettier
 autocmd BufWritePre *.ts setfiletype typescript
 
 " reload when entering the buffer or gaining focus
-au FocusGained,BufEnter * :silent! !
+autocmd FocusGained,BufEnter * :silent! !
 
 " Two space indent for certain file types
 autocmd FileType javascript,typescript,yaml,html :setlocal sw=2 ts=2 sts=2
+
+"autocmd FileType rust :map <leader>r :terminal cargo run<cr>
 
 " Use Markdown syntax highlighting for .md-files
 autocmd BufNewFile,BufRead *.md set syntax=markdown
 
 " Key bindings ===============================================================
 
-" TODO Figure out if I need this
 " Stay on the current word when using * to search
 " nnoremap * *N
 
-" TODO Figure out if I need these
-" move vertically over wrapped lines
-" nnoremap j gj
-" nnoremap k gk
+nnoremap j gj
+nnoremap k gk
 
 " Bind kj to escape
 inoremap kj <Esc>
 
-" TODO Figure out if I need these
-" move to beginning/end of line
-" TODO Lookup what these overwrite
-" noremap H ^
-" noremap L $
+noremap H ^
+noremap L $
 
-" TODO Figure out if I need these
-" Easier split navigation
-" TODO Loopkup what these overwrite
-" nnoremap <C-H> <C-W><C-H>
-" nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+xnoremap p pgvy  " Immediately yank what you just pasted to reset the register
 
 " TODO Figure out if I need these
 " TODO Loopkup what these overwrite
@@ -100,8 +98,12 @@ inoremap kj <Esc>
 " map <C-p> :tabp<CR>
 
 " Keep selection after changing indent level
-" vnoremap > ><CR>gv
-" vnoremap < <<CR>gv
+vnoremap > ><CR>gv
+vnoremap < <<CR>gv
+
+" Custom commands ============================================================
+
+command CI terminal++close git commit -a --amend
 
 " Leader bindings ============================================================
 
@@ -136,7 +138,7 @@ nnoremap <leader>vr :source $MYVIMRC<CR>
 
 " Plugin settings ============================================================
 
-let $FZF_DEFAULT_COMMAND = 'fd --type f --follow --exclude .git'
+let $FZF_DEFAULT_COMMAND = 'fdfind --type f --follow --exclude .git'
 
 let g:netrw_banner=0 " disable annoying banner
 let g:netrw_altv=1 " opens splits to the right
@@ -146,9 +148,16 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 1
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+" let g:pymode_options_max_line_length = 100
+" let g:pymode_lint = 1
+" let g:pymode_lint_on_write = 1
+" let g:pymode_lint_message = 1
+" Options: `pylint`, `pep8`, `mccabe`, `pep257`, `pyflakes`.
+" let g:pymode_lint_checkers = ['pep8', 'pep257', 'pyflakes']
