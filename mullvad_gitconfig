@@ -1,13 +1,14 @@
 [user]
-    name = Simon Andersson
-    email = simon@mullvad.net
+	name = Simon Andersson
+	email = simon@mullvad.net
     signingkey = BC334D52
 [gpg]
     program = gpg
 [core]
-    editor = vim
+    editor = nvim
 [push]
     default = simple
+	recurseSubmodules = check
 [color]
     ui = true
 [alias]
@@ -16,7 +17,17 @@
     ci = commit
     st = status
     gr = log --graph --oneline --decorate --all
+    dc = diff --cached
+    cp = cherry-pick
+	supdate = submodule update --remote --merge
 [diff]
-	tool = vimdiff
+	tool = nvim -d
+	submodule = log
 [difftool]
 	prompt = false
+[status]
+    submodulesummary = -1
+[submodule]
+	recurse = false
+[rebase]
+	autosquash = true

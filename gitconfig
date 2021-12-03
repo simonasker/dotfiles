@@ -2,7 +2,7 @@
     name = Simon Andersson
     email = simonasker@posteo.net
 [core]
-    editor = vim
+    editor = nvim
 [push]
     default = simple
 [color]
@@ -14,6 +14,8 @@
     st = status
     gr = log --graph --oneline --decorate --all
     dc = diff --cached
-    pom = push origin master
+    cp = cherry-pick
 [merge]
-    tool = vimdiff
+    tool = nvim- d
+[diff]
+	tool = nvim -d
