@@ -59,8 +59,8 @@ set tabstop=4                   " A hard TAB displays as 4 columns
 set splitbelow                  " New window is placed below the current one
 set splitright                  " New window is placed to the right of the current one
 " set ttyfast                     " Better terminal performance
-" set wildmenu                    " Extend tab-completion with interactive menu
-" set wildmode=longest,list,full  " Sensible tab-completion behavior
+set wildmenu                    " Extend tab-completion with interactive menu
+set wildmode=longest,list,full  " Sensible tab-completion behavior
 "
 " " set textwidth=100
 "
