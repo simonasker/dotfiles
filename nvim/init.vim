@@ -121,7 +121,8 @@ tnoremap <Esc> <C-\><C-n>
 " tnoremap kj <C-\><C-n>
 tmap kj <Esc>
 
-nnoremap <leader>t :split term://zsh<CR>
+nnoremap <leader>t :split term://bash<CR>
+nnoremap <leader>r :!cargo run<CR>
 nnoremap <leader>f :FZF<CR>
 
 let g:netrw_banner=0
