@@ -76,6 +76,7 @@ set wildmode=longest,list,full  " Sensible tab-completion behavior
 autocmd BufWritePre * :%s/\s\+$//ge
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 
 autocmd FileType go nnoremap <leader>r :GoRun<CR>
 autocmd FileType go nnoremap <leader>t :GoTest -v<CR>
