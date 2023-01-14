@@ -32,13 +32,16 @@ filetype plugin indent on
 "
 set updatetime=10
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 set termguicolors
 set t_Co=256
 set background=dark
 let g:gruvbox_italic=1
-" colorscheme base16-onedark
+let g:solarized_termcolors = 256
 colorscheme gruvbox
+
+
+set noswapfile
+set backupcopy=yes
 "
 " set autoindent                  " Start new lines on the same indent level as the current line
 " set cursorline                  " Highlight the current line
@@ -125,9 +128,9 @@ nnoremap <leader>t :split term://bash<CR>
 nnoremap <leader>r :!cargo run<CR>
 nnoremap <leader>f :FZF<CR>
 
-let g:netrw_banner=0
-let g:netrw_altv=1
-let g:netrw_liststyle=3
+" let g:netrw_banner=0
+" let g:netrw_altv=1
+" let g:netrw_liststyle=3
 
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_conceal = 2
