@@ -2,17 +2,19 @@ set rtp+=~/.config/nvim/bundle/Vundle.vim
 
 call vundle#begin('~/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'rakr/vim-one'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'nvie/vim-flake8'
+" Plugin 'vim-syntastic/syntastic'
+" Plugin 'klen/python-mode'
+" Plugin 'psf/black'
 Plugin 'tpope/vim-commentary'
-Plugin 'fatih/vim-go'
-Plugin 'junegunn/fzf'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+" Plugin 'fatih/vim-go'
+" Plugin 'junegunn/fzf'
+" Plugin 'godlygeek/tabular'
+" Plugin 'preservim/vim-markdown'
 call vundle#end()
 
 filetype plugin indent on
