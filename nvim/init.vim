@@ -3,12 +3,12 @@ set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 " Plugin 'vim-airline/vim-airline'
-" Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
 " Plugin 'nvie/vim-flake8'
 " Plugin 'vim-syntastic/syntastic'
-" Plugin 'klen/python-mode'
+Plugin 'klen/python-mode'
 Plugin 'psf/black'
 Plugin 'tpope/vim-commentary'
 " Plugin 'fatih/vim-go'
@@ -72,9 +72,9 @@ autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType go nnoremap <leader>r :GoRun<CR>
 autocmd FileType go nnoremap <leader>t :GoTest -v<CR>
 
-" Python ======================================================================
+" python-mode =================================================================
 
-" let g:pymode_options_max_line_length = 100
+let g:pymode_options_max_line_length = 100
 " let g:pymode_syntax_space_errors = 0
 " let g:pymode_options_colorcolumn = 0
 " let g:pymode_lint_checkers = ['pyflakes', 'pep8']
@@ -84,7 +84,7 @@ autocmd FileType go nnoremap <leader>t :GoTest -v<CR>
 " Highlight trailing whitespace in red
 " autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-" Black ======================================================================
+" black ======================================================================
 
 let g:black_fast=1
 nnoremap <F9> :Black<CR>
