@@ -113,6 +113,13 @@ tnoremap <Esc> <C-\><C-n>
 " tnoremap kj <C-\><C-n>
 tmap kj <Esc>
 
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
 nnoremap <leader>t :split term://bash<CR>
 nnoremap <leader>r :!cargo run<CR>
 nnoremap <leader>f :FZF<CR>
