@@ -2,6 +2,8 @@
 	name = Simon Andersson
 	email = simon@mullvad.net
     signingkey = BC334D52
+[init]
+    defaultBranch = main
 [gpg]
     program = gpg
 [core]
@@ -32,3 +34,9 @@
 	recurse = false
 [rebase]
 	autosquash = true
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
