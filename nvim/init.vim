@@ -9,7 +9,7 @@ Plugin 'morhetz/gruvbox'
 " Plugin 'nvie/vim-flake8'
 " Plugin 'vim-syntastic/syntastic'
 " Plugin 'klen/python-mode'
-" Plugin 'psf/black'
+Plugin 'psf/black'
 Plugin 'tpope/vim-commentary'
 " Plugin 'fatih/vim-go'
 " Plugin 'junegunn/fzf'
@@ -32,14 +32,13 @@ colorscheme gruvbox
 set noswapfile
 set backupcopy=yes
 "
-" set autoindent                  " Start new lines on the same indent level as the current line
-" set cursorline                  " Highlight the current line
-" set directory=~/.vim/swap       " Specify where swap files are placed
+set autoindent                  " Start new lines on the same indent level as the current line
 " set hlsearch                    " Hightlight matches
 " set incsearch                   " Start searchin as soon as characters are entered
 " set laststatus=2                " Always display the status line
 " set lbr
 " set lazyredraw
+set encoding=utf-8
 set number                      " Display line numbers
 " set report=0                    " Always report how many lines are changed
 " set scrolloff=4                 " Keep cursor 4 lines away form window edges
@@ -51,14 +50,14 @@ set softtabstop=4               " Insert/delete 4 spaces when hitting TAB/BACKSP
 set tabstop=4                   " A hard TAB displays as 4 columns
 set splitbelow                  " New window is placed below the current one
 set splitright                  " New window is placed to the right of the current one
+set syntax
+set fileformat=unix
 " set ttyfast                     " Better terminal performance
 set wildmenu                    " Extend tab-completion with interactive menu
 set wildmode=longest,list,full  " Sensible tab-completion behavior
 "
 " " set textwidth=100
 "
-" set splitright
-" set splitbelow
 " set report=0
 " set belloff=all
 "
@@ -72,6 +71,30 @@ autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 
 autocmd FileType go nnoremap <leader>r :GoRun<CR>
 autocmd FileType go nnoremap <leader>t :GoTest -v<CR>
+
+" Python ======================================================================
+
+" let g:pymode_options_max_line_length = 100
+" let g:pymode_syntax_space_errors = 0
+" let g:pymode_options_colorcolumn = 0
+" let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+" let g:pymode_lint = 0
+" let g:pymode_lint_on_write = 0
+
+" Highlight trailing whitespace in red
+" autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" Black ======================================================================
+
+let g:black_fast=1
+nnoremap <F9> :Black<CR>
+" Run black on saving a python file
+augroup black_on_save
+  autocmd!
+  autocmd BufWritePre *.py Black
+augroup end
+
+" ============================================================================
 
 " Use Markdown syntax highlighting for .md-files
 " autocmd BufNewFile,BufRead *.md set syntax=markdown
