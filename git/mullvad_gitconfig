@@ -8,6 +8,15 @@
     program = gpg
 [core]
     editor = nvim
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    line-numbers = true
+    side-by-side = false
+[merge]
+    conflictstyle = diff3
 [push]
     default = simple
 	recurseSubmodules = check
@@ -25,7 +34,8 @@
 	supdate = submodule update --remote --merge
 [diff]
 	tool = nvim -d
-	submodule = log
+    submodule = log
+    colorMoved = default
 [difftool]
 	prompt = false
 [status]

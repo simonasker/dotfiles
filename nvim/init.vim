@@ -15,6 +15,8 @@ Plugin 'tpope/vim-commentary'
 " Plugin 'junegunn/fzf'
 " Plugin 'godlygeek/tabular'
 " Plugin 'preservim/vim-markdown'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'bullets-vim/bullets.vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -56,7 +58,7 @@ set fileformat=unix
 set wildmenu                    " Extend tab-completion with interactive menu
 set wildmode=longest,list,full  " Sensible tab-completion behavior
 "
-" " set textwidth=100
+set textwidth=100
 "
 " set report=0
 " set belloff=all
@@ -77,7 +79,7 @@ autocmd FileType go nnoremap <leader>t :GoTest -v<CR>
 let g:pymode_options_max_line_length = 100
 " let g:pymode_syntax_space_errors = 0
 " let g:pymode_options_colorcolumn = 0
-" let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_lint_checkers = ['pyflakes', 'pylint', 'pep257', 'pycodestyle']
 " let g:pymode_lint = 0
 " let g:pymode_lint_on_write = 0
 
@@ -87,6 +89,8 @@ let g:pymode_options_max_line_length = 100
 " black ======================================================================
 
 let g:black_fast=1
+let g:black_skip_string_normalization=1
+let g:black_linelength=100
 nnoremap <F9> :Black<CR>
 " Run black on saving a python file
 augroup black_on_save
@@ -124,8 +128,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
 " Cycle through tabs like in firefox
-map <C-n> :tabn<CR>
-map <C-p> :tabp<CR>
+" map <C-n> :tabn<CR>
+" map <C-p> :tabp<CR>
 
 " Keep selection after changing indent level
 vnoremap > ><CR>gv
@@ -151,9 +155,9 @@ nnoremap <leader>f :FZF<CR>
 " let g:netrw_altv=1
 " let g:netrw_liststyle=3
 
-let g:vim_markdown_toc_autofit = 1
-let g:vim_markdown_conceal = 2
-let g:vim_markdown_follow_anchor = 1
-let g:vim_markdown_auto_insert_bullets = 0
-let g:vim_markdown_new_list_item_indent = 0
-let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_toc_autofit = 1
+" let g:vim_markdown_conceal = 2
+" let g:vim_markdown_follow_anchor = 1
+" let g:vim_markdown_auto_insert_bullets = 0
+" let g:vim_markdown_new_list_item_indent = 0
+" let g:vim_markdown_folding_disabled = 1
