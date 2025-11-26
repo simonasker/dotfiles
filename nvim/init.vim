@@ -4,19 +4,16 @@ call vundle#begin('~/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 " Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
-" Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
+" Plugin 'neovim/nvim-lspconfig'
 " Plugin 'nvie/vim-flake8'
 " Plugin 'vim-syntastic/syntastic'
-Plugin 'klen/python-mode'
-Plugin 'psf/black'
 Plugin 'tpope/vim-commentary'
 " Plugin 'fatih/vim-go'
 " Plugin 'junegunn/fzf'
-" Plugin 'godlygeek/tabular'
 " Plugin 'preservim/vim-markdown'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'bullets-vim/bullets.vim'
+Plugin 'lepture/vim-jinja'
 call vundle#end()
 
 filetype plugin indent on
@@ -77,7 +74,7 @@ autocmd FileType go nnoremap <leader>t :GoTest -v<CR>
 " python-mode =================================================================
 
 let g:pymode_options_max_line_length = 100
-" let g:pymode_syntax_space_errors = 0
+let g:pymode_syntax_space_errors = 0
 " let g:pymode_options_colorcolumn = 0
 let g:pymode_lint_checkers = ['pyflakes', 'pylint', 'pep257', 'pycodestyle']
 " let g:pymode_lint = 0
@@ -85,18 +82,6 @@ let g:pymode_lint_checkers = ['pyflakes', 'pylint', 'pep257', 'pycodestyle']
 
 " Highlight trailing whitespace in red
 " autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-" black ======================================================================
-
-let g:black_fast=1
-let g:black_skip_string_normalization=1
-let g:black_linelength=100
-nnoremap <F9> :Black<CR>
-" Run black on saving a python file
-augroup black_on_save
-  autocmd!
-  autocmd BufWritePre *.py Black
-augroup end
 
 " ============================================================================
 
@@ -106,9 +91,6 @@ augroup end
 " Key bindings ===============================================================
 
 let mapleader = ","
-
-" space open/closes folds
-" nnoremap <space> za
 
 " move vertically by visual line
 nnoremap j gj
