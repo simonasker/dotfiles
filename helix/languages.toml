@@ -1,0 +1,10 @@
+[[language]]
+name = "python"
+language-servers = ["ruff", "pylsp"]
+auto-format = true
+# formatter = { command = "ruff", args = ["format", "--line-length", "100", "-"] }
+formatter = { command = "ruff", args = ["format", "-"] }
+
+[language-server.ruff]
+command = "ruff"
+args = ["server", "-q", "preview"]

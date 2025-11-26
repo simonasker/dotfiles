@@ -1,0 +1,22 @@
+theme = "jellybeans"
+
+[keys.normal]
+
+# "S-h" = "goto_line_start"
+# "S-l" = "goto_line_end_newline"
+# "C-r" = "redo"
+# "S-v" = "extend_line_below"
+
+
+[keys.insert]
+k = { j = "normal_mode" } # Maps `kj` to exit insert mode
+
+# [editor.soft-wrap]
+# enable = true
+
+# [editor.statusline]
+# left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modification-indicator"]
+# right = ["version-control", "diagnostics", "selections", "register", "position", "file-encoding"]
+
+[editor.cursor-shape]
+insert = "bar"
