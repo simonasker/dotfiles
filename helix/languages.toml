@@ -8,3 +8,7 @@ formatter = { command = "ruff", args = ["format", "-"] }
 [language-server.ruff]
 command = "ruff"
 args = ["server", "-q", "preview"]
+
+[[language]]
+name = "markdown"
+soft-wrap = { enable = true }
