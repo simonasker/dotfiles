@@ -85,3 +85,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
+
+
+
+-- ===========================================
+-- Telescope
+-- ===========================================
+
+
+vim.pack.add({
+  { src = "https://github.com/nvim-lua/plenary.nvim" },
+  { src = "https://github.com/nvim-telescope/telescope.nvim" },
+})
+
+local telescope = require("telescope")
+
+telescope.setup({})
+
+local builtin = require("telescope.builtin")
+
+vim.keymap.set("n", "<leader>f", builtin.find_files)
+vim.keymap.set("n", "<leader>g", builtin.live_grep)
