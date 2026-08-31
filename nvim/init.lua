@@ -195,6 +195,11 @@ require('conform').setup {
   formatters_by_ft = {
     python = { 'ruff_fix', 'ruff_format' },
     lua = { 'stylua' },
+    markdown = { 'mdformat' }, -- maybe use prettier instead
+    -- docker = { 'dockerfmt' }
+    -- other formatters: dockerfmt, djangofmt, gofmt, gofumpt, goimports, nginxfmt, shellcheck
+    -- python: ruff_organize_imports
+    -- yaml: yamlfix, yamlfmt
   },
   format_on_save = {
     timeout_ms = 500,
