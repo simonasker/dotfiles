@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "conform.nvim": {
+      "rev": "016802de402556da54c36bd7359b441266b01cdd",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
     "gitsigns.nvim": {
       "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
@@ -7,6 +11,14 @@
     "jellybeans.vim": {
       "rev": "ef83bf4dc8b3eacffc97bf5c96ab2581b415c9fa",
       "src": "https://github.com/nanotech/jellybeans.vim"
+    },
+    "mini.nvim": {
+      "rev": "a311ed247d527db9592bb434356badc705363746",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "nvim-treesitter": {
+      "rev": "857651fce37eba032ebe28f3a206283cdc65c45a",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
