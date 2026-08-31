@@ -25,6 +25,11 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.signcolumn = 'yes' -- Keep signcolumn on by default
 vim.opt.updatetime = 250 -- Decrease update time
 
+-- TODO It's possible that these settings do not feel ideal when editing code
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+
 
 
 -- Syntax highlighting and filetype plugins
@@ -43,17 +48,25 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>c', ':e $MYVIMRC<CR>', { desc = 'Edit config' })
 -- Save with <Leader>w
 vim.keymap.set('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
--- Move to the beginning or end of the line with gh/gl
-vim.keymap.set('n', 'gh', '^')
-vim.keymap.set('n', 'gl', '$')
+-- Move to the beginning of a line with gh
+vim.keymap.set('n', 'gh', 'g0')
+-- Move to the end of a line with gl
+vim.keymap.set('n', 'gl', 'g$')
+-- Move between screen lines with j and k
+vim.keymap.set({'n', 'x'}, 'j', 'gj')
+vim.keymap.set({'n', 'x'}, 'k', 'gk')
+-- Exit terminal mode with double-Esc
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- Exit normal mode with kj
 vim.keymap.set('i', 'kj', '<ESC>', { noremap = true, silent = true })
 -- Open terminal with <Leader>td
 vim.keymap.set('n', '<leader>td', ':bo sp | term<CR>', { desc = 'Open terminal' })
-vim.keymap.set("x", "y", [["+y]]) -- Yank to the system clipboard in visual mode
-vim.keymap.set("n", "<C-d>", "<C-d>zz") -- Scroll down and center the cursor
-vim.keymap.set("n", "<C-u>", "<C-u>zz") -- Scroll up and center the cursor
+-- Yank to the system clipboard in visual mode
+vim.keymap.set("x", "y", [["+y]])
+-- Scroll down and center the cursor
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+-- Scroll up and center the cursor
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- vim.api.nvim_create_autocmd("BufWritePre", {
     -- pattern = "*.lua",
