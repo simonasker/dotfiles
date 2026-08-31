@@ -15,7 +15,7 @@ vim.opt.swapfile = false -- Disable swap files
 vim.opt.list = true -- Show whitespace characters
 vim.opt.cursorline = true -- Highlight the current line
 vim.opt.scrolloff = 8 -- Keep 8 lines above and below the cursor
-vim.opt.undofile = true
+vim.opt.undofile = true -- Enable undoing after closing and reopening a file
 vim.opt.ignorecase = true 
 vim.opt.smartcase = true -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.splitright = true
@@ -25,11 +25,10 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.signcolumn = 'yes' -- Keep signcolumn on by default
 vim.opt.updatetime = 250 -- Decrease update time
 
--- TODO It's possible that these settings do not feel ideal when editing code
+-- TODO: It's possible that these settings do not feel ideal when editing code
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
-
 
 
 -- Syntax highlighting and filetype plugins
@@ -44,7 +43,7 @@ vim.cmd('filetype plugin indent on')
 
 vim.g.mapleader = ' ' -- Space as leader key
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
--- TODO This does not quite work since I don't use the envvar
+-- TODO: This does not quite work since I don't use the envvar
 vim.keymap.set('n', '<leader>c', ':e $MYVIMRC<CR>', { desc = 'Edit config' })
 -- Save with <Leader>w
 vim.keymap.set('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
@@ -63,10 +62,12 @@ vim.keymap.set('i', 'kj', '<ESC>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>td', ':bo sp | term<CR>', { desc = 'Open terminal' })
 -- Yank to the system clipboard in visual mode
 vim.keymap.set("x", "y", [["+y]])
+
+-- TODO: I don't quite like how these behave
 -- Scroll down and center the cursor
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz")
 -- Scroll up and center the cursor
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- vim.api.nvim_create_autocmd("BufWritePre", {
     -- pattern = "*.lua",
@@ -89,15 +90,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 
 -- ===========================================
--- Telescope
+-- Plugins
 -- ===========================================
 
 
 vim.pack.add({
-  { src = "https://github.com/nvim-lua/plenary.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope.nvim" },
+    { src = "https://github.com/nvim-lua/plenary.nvim" },
+    { src = "https://github.com/nvim-telescope/telescope.nvim" },
+    { src = "https://github.com/lewis6991/gitsigns.nvim" },
+    -- { src = "https://github.com/folke/which-key.nvim" },
+    -- { src = "https://github.com/folke/tokyonight.nvim" },
+    { src = "https://github.com/nanotech/jellybeans.vim" },
+    { src = "https://github.com/folke/todo-comments.nvim" },
 })
 
+-- vim.cmd.colorscheme("tokyonight-night")
+vim.cmd.colorscheme("jellybeans")
+
+-- Telescope
 local telescope = require("telescope")
 
 telescope.setup({})
@@ -106,3 +116,16 @@ local builtin = require("telescope.builtin")
 
 vim.keymap.set("n", "<leader>f", builtin.find_files)
 vim.keymap.set("n", "<leader>g", builtin.live_grep)
+
+-- Gitsigns
+
+-- require('gitsigns').setup {
+    -- signs = {
+        -- add = { text = '+' }, 
+        -- change = { text = '~' },
+        -- delete = { text = '_' },
+        -- topdelete = { text = '‾' },
+        -- changedelete = { text = '~' },
+    -- },
+  -- }
+require('todo-comments').setup({ signs = false })
