@@ -30,6 +30,10 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Syntax highlighting and filetype plugins
 vim.cmd 'syntax enable'
 vim.cmd 'filetype plugin indent on'
@@ -97,7 +101,12 @@ vim.pack.add {
   { src = 'https://github.com/nvim-mini/mini.nvim' },
   { src = 'https://github.com/stevearc/conform.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' },
+  { src = 'https://github.com/nvim-tree/nvim-tree.lua' },
+  -- TODO: These icons don't render properly but that might be an issue with my terminal
+  { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
 }
+
+-- TODO: Find out how to uninstall plugins
 
 -- vim.cmd.colorscheme("tokyonight-night")
 vim.cmd.colorscheme 'jellybeans'
@@ -220,3 +229,5 @@ require('conform').setup {
 
 vim.pack.add { 'https://github.com/windwp/nvim-autopairs' }
 require('nvim-autopairs').setup {}
+
+require('nvim-tree').setup()
