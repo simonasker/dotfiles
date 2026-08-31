@@ -96,6 +96,7 @@ vim.pack.add {
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
   { src = 'https://github.com/nvim-mini/mini.nvim' },
   { src = 'https://github.com/stevearc/conform.nvim' },
+  { src = 'https://github.com/neovim/nvim-lspconfig' },
 }
 
 -- vim.cmd.colorscheme("tokyonight-night")
@@ -111,16 +112,24 @@ local builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>f', builtin.find_files)
 vim.keymap.set('n', '<leader>g', builtin.live_grep)
 
-vim.keymap.set(
-  'n',
-  '<leader>/',
-  function()
-    require('telescope.builtin').live_grep {
-      search_dirs = { vim.fn.expand '%:p' },
-    }
-  end,
-  { desc = 'Grep current file' }
-)
+-- vim.keymap.set(
+-- 'n',
+-- '<leader>/',
+-- function()
+-- require('telescope.builtin').live_grep {
+-- search_dirs = { vim.fn.expand '%:p' },
+-- }
+-- end,
+-- { desc = 'Grep current file' }
+-- )
+
+vim.keymap.set('n', '<leader>/', function()
+  -- You can pass additional configuration to Telescope to change the theme, layout, etc.
+  builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 20,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer' })
 
 -- Gitsigns
 
@@ -188,6 +197,8 @@ vim.api.nvim_create_autocmd('PackChanged', {
   end,
 })
 
+-- TODO Maybe I should uninstall this and look for another status line
+-- or I could explore what else there is in the mini package
 require('mini.statusline').setup { use_icons = false }
 
 require('conform').setup {
@@ -206,3 +217,6 @@ require('conform').setup {
     lsp_format = 'fallback',
   },
 }
+
+vim.pack.add { 'https://github.com/windwp/nvim-autopairs' }
+require('nvim-autopairs').setup {}
