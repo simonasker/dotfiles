@@ -44,7 +44,7 @@ vim.cmd 'filetype plugin indent on'
 
 vim.g.mapleader = ' ' -- Space as leader key
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set('n', '<leader>c', ':e $MYVIMRC<CR>', { desc = 'Edit config' })
+vim.keymap.set('n', '<leader>ec', ':e $MYVIMRC<CR>', { desc = 'Edit config' })
 -- Save with <Leader>w
 vim.keymap.set('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
 -- Move to the beginning of a line with gh
@@ -57,9 +57,9 @@ vim.keymap.set({ 'n', 'x' }, 'k', 'gk')
 -- Exit terminal mode with double-Esc
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- Exit normal mode with kj
-vim.keymap.set('i', 'kj', '<ESC>', { noremap = true, silent = true })
+vim.keymap.set({ 'i', 't' }, 'kj', '<Esc>', { noremap = true, silent = true })
 -- Open terminal with <Leader>td
-vim.keymap.set('n', '<leader>td', ':bo sp | term<CR>', { desc = 'Open terminal' })
+vim.keymap.set('n', '<leader>t', ':bo sp | term<CR>', { desc = 'Open terminal' })
 -- Yank to the system clipboard in visual mode
 vim.keymap.set('x', 'y', [["+y]])
 
@@ -94,7 +94,7 @@ vim.pack.add {
   { src = 'https://github.com/nvim-telescope/telescope.nvim' },
   { src = 'https://github.com/lewis6991/gitsigns.nvim' },
   -- { src = "https://github.com/folke/which-key.nvim" },
-  -- { src = "https://github.com/folke/tokyonight.nvim" },
+  { src = 'https://github.com/folke/tokyonight.nvim' },
   { src = 'https://github.com/nanotech/jellybeans.vim' },
   { src = 'https://github.com/folke/todo-comments.nvim' },
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
@@ -103,7 +103,7 @@ vim.pack.add {
   { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = 'https://github.com/nvim-tree/nvim-tree.lua' },
   -- TODO: These icons don't render properly but that might be an issue with my terminal
-  { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
+  -- { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
 }
 
 -- TODO: Find out how to uninstall plugins
@@ -120,6 +120,7 @@ local builtin = require 'telescope.builtin'
 
 vim.keymap.set('n', '<leader>f', builtin.find_files)
 vim.keymap.set('n', '<leader>g', builtin.live_grep)
+vim.keymap.set('n', '<leader>c', builtin.commands)
 
 -- vim.keymap.set(
 -- 'n',
@@ -231,3 +232,9 @@ vim.pack.add { 'https://github.com/windwp/nvim-autopairs' }
 require('nvim-autopairs').setup {}
 
 require('nvim-tree').setup()
+
+-- TODO:
+-- - Fix text object so that I can select entire functions and classes in python
+-- - Figure out why the todo-comment highlighting is so slow
+-- - Fix autocomplete using LSP
+-- - Make sure ruff format works
