@@ -98,6 +98,7 @@ vim.pack.add {
   { src = 'https://github.com/nanotech/jellybeans.vim' },
   { src = 'https://github.com/folke/todo-comments.nvim' },
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' },
   { src = 'https://github.com/nvim-mini/mini.nvim' },
   { src = 'https://github.com/stevearc/conform.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' },
@@ -192,6 +193,25 @@ vim.api.nvim_create_autocmd('FileType', {
     end
   end,
 })
+
+require('nvim-treesitter-textobjects').setup {
+  select = {
+    enable = true,
+    lookahead = true,
+    selection_modes = {
+      ['@function.outer'] = 'V',
+      -- ['@class.outer'] = '<c-v>',
+      ['@class.outer'] = 'V',
+    },
+  },
+}
+
+local select = require 'nvim-treesitter-textobjects.select'
+
+vim.keymap.set({ 'x', 'o' }, 'ac', function() select.select_textobject('@class.outer', 'textobjects') end)
+vim.keymap.set({ 'x', 'o' }, 'ic', function() select.select_textobject('@class.inner', 'textobjects') end)
+vim.keymap.set({ 'x', 'o' }, 'af', function() select.select_textobject('@function.outer', 'textobjects') end)
+vim.keymap.set({ 'x', 'o' }, 'if', function() select.select_textobject('@function.inner', 'textobjects') end)
 
 -- Automatically update parsers when nvim-treesitter is upgraded
 vim.api.nvim_create_autocmd('PackChanged', {
