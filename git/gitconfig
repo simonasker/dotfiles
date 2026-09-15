@@ -2,7 +2,7 @@
     name = Simon Andersson
     email = simonasker@posteo.net
 [core]
-    editor = hx
+    editor = nvim
 [push]
     default = simple
 [color]
