@@ -7,7 +7,7 @@
 [gpg]
     program = gpg
 [core]
-    editor = hx
+    editor = nvim
     pager = delta
 [interactive]
     diffFilter = delta --color-only
