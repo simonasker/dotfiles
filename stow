@@ -1,2 +1,3 @@
 #!/bin/bash
-stow -S --dotfiles -t ~/.config/ .
+stow -v2 -S --dotfiles -t ~/.config/ . \
+    --ignore=stow
