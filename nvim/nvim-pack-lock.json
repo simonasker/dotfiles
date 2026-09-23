@@ -28,6 +28,10 @@
       "rev": "ef83bf4dc8b3eacffc97bf5c96ab2581b415c9fa",
       "src": "https://github.com/nanotech/jellybeans.vim"
     },
+    "markdown-plus.nvim": {
+      "rev": "f76cef58805c18d5fee7808ff5539da2490fee5c",
+      "src": "https://github.com/YousefHadder/markdown-plus.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "40276c4df7e6bdce6801d6c035c6227f9115a855",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"

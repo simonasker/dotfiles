@@ -43,6 +43,7 @@ vim.cmd 'filetype plugin indent on'
 -- ===========================================
 
 vim.g.mapleader = ' ' -- Space as leader key
+vim.g.maplocalleader = ' ' -- Space as leader key
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>ec', ':e $MYVIMRC<CR>', { desc = 'Edit config' })
 -- Save with <Leader>w
@@ -252,6 +253,10 @@ vim.pack.add { 'https://github.com/windwp/nvim-autopairs' }
 require('nvim-autopairs').setup {}
 
 require('nvim-tree').setup()
+
+
+vim.pack.add { 'https://github.com/YousefHadder/markdown-plus.nvim' }
+require('markdown-plus').setup()
 
 -- TODO:
 -- - Fix text object so that I can select entire functions and classes in python
