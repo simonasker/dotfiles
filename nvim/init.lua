@@ -91,6 +91,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- ===========================================
 
 require 'plugins.telescope'
+require 'plugins.treesitter'
 
 vim.pack.add {
   { src = 'https://github.com/lewis6991/gitsigns.nvim' },
@@ -98,8 +99,6 @@ vim.pack.add {
   { src = 'https://github.com/folke/tokyonight.nvim' },
   { src = 'https://github.com/nanotech/jellybeans.vim' },
   { src = 'https://github.com/folke/todo-comments.nvim' },
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' },
   { src = 'https://github.com/nvim-mini/mini.nvim' },
   { src = 'https://github.com/stevearc/conform.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' },
@@ -127,76 +126,6 @@ vim.cmd.colorscheme 'jellybeans'
 require('todo-comments').setup { signs = false }
 
 -- Treesitter
-
-local parsers = {
-  'bash',
-  'diff',
-  'html',
-  'json',
-  'lua',
-  'luadoc',
-  'markdown',
-  'markdown_inline',
-  'query',
-  'vim',
-  'vimdoc',
-  'go',
-  'python',
-}
-require('nvim-treesitter').install(parsers)
-
-vim.api.nvim_create_autocmd('FileType', {
-  callback = function(args)
-    local lang = vim.treesitter.language.get_lang(args.match)
-
-    if lang and vim.treesitter.language.add(lang) then
-      -- Enable treesitter
-      vim.treesitter.start(args.buf, lang)
-
-      -- Enable folding
-      vim.wo.foldmethod = 'expr'
-      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-      vim.wo.foldenable = true
-
-      -- Global fold settings
-      vim.opt.foldlevel = 99 -- Keep folds open by default
-      vim.opt.foldlevelstart = 99 -- Start files unfolded
-    end
-  end,
-})
-
-require('nvim-treesitter-textobjects').setup {
-  select = {
-    enable = true,
-    lookahead = true,
-    selection_modes = {
-      ['@function.outer'] = 'V',
-      -- ['@class.outer'] = '<c-v>',
-      ['@class.outer'] = 'V',
-    },
-  },
-}
-
-local select = require 'nvim-treesitter-textobjects.select'
-
-vim.keymap.set({ 'x', 'o' }, 'ac', function() select.select_textobject('@class.outer', 'textobjects') end)
-vim.keymap.set({ 'x', 'o' }, 'ic', function() select.select_textobject('@class.inner', 'textobjects') end)
-vim.keymap.set({ 'x', 'o' }, 'af', function() select.select_textobject('@function.outer', 'textobjects') end)
-vim.keymap.set({ 'x', 'o' }, 'if', function() select.select_textobject('@function.inner', 'textobjects') end)
-
--- Automatically update parsers when nvim-treesitter is upgraded
-vim.api.nvim_create_autocmd('PackChanged', {
-  callback = function(event)
-    local name = event.data.spec.name
-    local kind = event.data.kind
-
-    if name == 'nvim-treesitter' and (kind == 'install' or kind == 'update') then
-      if not event.data.active then vim.cmd.packadd 'nvim-treesitter' end
-
-      vim.cmd 'TSUpdate'
-    end
-  end,
-})
 
 -- TODO Maybe I should uninstall this and look for another status line
 -- or I could explore what else there is in the mini package
