@@ -97,19 +97,17 @@ require 'plugins.conform'
 vim.pack.add {
   { src = 'https://github.com/lewis6991/gitsigns.nvim' },
   -- { src = "https://github.com/folke/which-key.nvim" },
-  { src = 'https://github.com/folke/tokyonight.nvim' },
-  { src = 'https://github.com/nanotech/jellybeans.vim' },
-  { src = 'https://github.com/folke/todo-comments.nvim' },
   { src = 'https://github.com/nvim-mini/mini.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' },
-  { src = 'https://github.com/nvim-tree/nvim-tree.lua' },
-  -- TODO: These icons don't render properly but that might be an issue with my terminal
-  -- { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
 }
 
 -- TODO: Find out how to uninstall plugins
 
--- vim.cmd.colorscheme("tokyonight-night")
+-- colorschemes
+vim.pack.add {
+  'https://github.com/folke/tokyonight.nvim',
+  'https://github.com/nanotech/jellybeans.vim',
+}
 vim.cmd.colorscheme 'jellybeans'
 
 -- Gitsigns
@@ -123,21 +121,31 @@ vim.cmd.colorscheme 'jellybeans'
 -- changedelete = { text = '~' },
 -- },
 -- }
-require('todo-comments').setup { signs = false }
+
+-- todo-comments
+-- vim.pack.add { 'https://github.com/folke/todo-comments.nvim' }
+-- require('todo-comments').setup { signs = false }
 
 -- TODO Maybe I should uninstall this and look for another status line
 -- or I could explore what else there is in the mini package
 require('mini.statusline').setup { use_icons = false }
 
+-- Autopairs
 vim.pack.add { 'https://github.com/windwp/nvim-autopairs' }
 require('nvim-autopairs').setup {}
 
+-- nvim-tree
 -- TODO: I need to find a better setup for file tree exploration
+-- vim.pack.add {
+--   'https://github.com/nvim-tree/nvim-tree.lua',
+--   -- TODO: These icons don't render properly but that might be an issue with my terminal
+--   'https://github.com/nvim-tree/nvim-web-devicons',
+-- }
 -- require('nvim-tree').setup()
 
+-- markdown-plus
 vim.pack.add { 'https://github.com/YousefHadder/markdown-plus.nvim' }
 require('markdown-plus').setup()
 
 -- TODO:
--- - Figure out why the todo-comment highlighting is so slow
 -- - Fix autocomplete using LSP
