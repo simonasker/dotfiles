@@ -25,11 +25,6 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.signcolumn = 'yes' -- Keep signcolumn on by default
 vim.opt.updatetime = 250 -- Decrease update time
 
--- TODO: It's possible that these settings do not feel ideal when editing code
-vim.opt.wrap = true
-vim.opt.linebreak = true
-vim.opt.breakindent = true
-
 -- Disable netrw
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
@@ -70,13 +65,6 @@ vim.keymap.set('x', 'y', [["+y]])
 -- Scroll up and center the cursor
 -- vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- vim.api.nvim_create_autocmd("BufWritePre", {
--- pattern = "*.lua",
--- callback = function()
--- vim.lsp.buf.format()
--- end,
--- })
-
 -- ===========================================
 -- Autocommands
 -- ===========================================
@@ -84,6 +72,15 @@ vim.api.nvim_create_autocmd('TermOpen', { pattern = '*', command = 'startinsert'
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.highlight.on_yank() end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    vim.bo.wrap = true
+    vim.bo.linebreak = true
+    vim.bo.breakindent = true
+  end,
 })
 
 -- ===========================================
