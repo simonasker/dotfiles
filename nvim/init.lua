@@ -49,7 +49,7 @@ vim.keymap.set('n', '<leader>ec', ':e $MYVIMRC<CR>', { desc = 'Edit config' })
 -- Save with <Leader>w
 vim.keymap.set('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
 -- Move to the beginning of a line with gh
-vim.keymap.set('n', 'gh', 'g0')
+vim.keymap.set('n', 'gh', 'g^')
 -- Move to the end of a line with gl
 vim.keymap.set('n', 'gl', 'g$')
 -- Move between screen lines with j and k
@@ -123,6 +123,7 @@ local builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>f', builtin.find_files)
 vim.keymap.set('n', '<leader>g', builtin.live_grep)
 vim.keymap.set('n', '<leader>c', builtin.commands)
+vim.keymap.set('n', '<leader>sg', builtin.grep_string)
 
 -- vim.keymap.set(
 -- 'n',
@@ -252,14 +253,12 @@ require('conform').setup {
 vim.pack.add { 'https://github.com/windwp/nvim-autopairs' }
 require('nvim-autopairs').setup {}
 
-require('nvim-tree').setup()
-
+-- TODO: I need to find a better setup for file tree exploration
+-- require('nvim-tree').setup()
 
 vim.pack.add { 'https://github.com/YousefHadder/markdown-plus.nvim' }
 require('markdown-plus').setup()
 
 -- TODO:
--- - Fix text object so that I can select entire functions and classes in python
 -- - Figure out why the todo-comment highlighting is so slow
 -- - Fix autocomplete using LSP
--- - Make sure ruff format works
