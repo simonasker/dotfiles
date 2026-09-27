@@ -92,6 +92,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 require 'plugins.telescope'
 require 'plugins.treesitter'
+require 'plugins.conform'
 
 vim.pack.add {
   { src = 'https://github.com/lewis6991/gitsigns.nvim' },
@@ -100,7 +101,6 @@ vim.pack.add {
   { src = 'https://github.com/nanotech/jellybeans.vim' },
   { src = 'https://github.com/folke/todo-comments.nvim' },
   { src = 'https://github.com/nvim-mini/mini.nvim' },
-  { src = 'https://github.com/stevearc/conform.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = 'https://github.com/nvim-tree/nvim-tree.lua' },
   -- TODO: These icons don't render properly but that might be an issue with my terminal
@@ -125,28 +125,9 @@ vim.cmd.colorscheme 'jellybeans'
 -- }
 require('todo-comments').setup { signs = false }
 
--- Treesitter
-
 -- TODO Maybe I should uninstall this and look for another status line
 -- or I could explore what else there is in the mini package
 require('mini.statusline').setup { use_icons = false }
-
-require('conform').setup {
-  notify_on_error = false,
-  formatters_by_ft = {
-    python = { 'ruff_fix', 'ruff_format' },
-    lua = { 'stylua' },
-    markdown = { 'mdformat' }, -- maybe use prettier instead
-    -- docker = { 'dockerfmt' }
-    -- other formatters: dockerfmt, djangofmt, gofmt, gofumpt, goimports, nginxfmt, shellcheck
-    -- python: ruff_organize_imports
-    -- yaml: yamlfix, yamlfmt
-  },
-  format_on_save = {
-    timeout_ms = 500,
-    lsp_format = 'fallback',
-  },
-}
 
 vim.pack.add { 'https://github.com/windwp/nvim-autopairs' }
 require('nvim-autopairs').setup {}
