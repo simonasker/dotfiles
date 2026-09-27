@@ -31,8 +31,8 @@ vim.opt.linebreak = true
 vim.opt.breakindent = true
 
 -- Disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 -- Syntax highlighting and filetype plugins
 vim.cmd 'syntax enable'
@@ -92,14 +92,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 require 'plugins.telescope'
 require 'plugins.treesitter'
+require 'plugins.lsp'
 require 'plugins.conform'
-
-vim.pack.add {
-  { src = 'https://github.com/lewis6991/gitsigns.nvim' },
-  -- { src = "https://github.com/folke/which-key.nvim" },
-  { src = 'https://github.com/nvim-mini/mini.nvim' },
-  { src = 'https://github.com/neovim/nvim-lspconfig' },
-}
 
 -- TODO: Find out how to uninstall plugins
 
@@ -111,6 +105,7 @@ vim.pack.add {
 vim.cmd.colorscheme 'jellybeans'
 
 -- Gitsigns
+vim.pack.add { 'https://github.com/lewis6991/gitsigns.nvim' }
 
 -- require('gitsigns').setup {
 -- signs = {
@@ -126,6 +121,7 @@ vim.cmd.colorscheme 'jellybeans'
 -- vim.pack.add { 'https://github.com/folke/todo-comments.nvim' }
 -- require('todo-comments').setup { signs = false }
 
+vim.pack.add { 'https://github.com/nvim-mini/mini.nvim' }
 -- TODO Maybe I should uninstall this and look for another status line
 -- or I could explore what else there is in the mini package
 require('mini.statusline').setup { use_icons = false }
@@ -146,6 +142,3 @@ require('nvim-autopairs').setup {}
 -- markdown-plus
 vim.pack.add { 'https://github.com/YousefHadder/markdown-plus.nvim' }
 require('markdown-plus').setup()
-
--- TODO:
--- - Fix autocomplete using LSP
