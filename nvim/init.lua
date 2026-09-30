@@ -77,9 +77,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'markdown',
   callback = function()
-    vim.bo.wrap = true
-    vim.bo.linebreak = true
-    vim.bo.breakindent = true
+    vim.wo.wrap = true
+    vim.wo.linebreak = true
+    vim.wo.breakindent = true
   end,
 })
 
@@ -138,4 +138,15 @@ require('nvim-autopairs').setup {}
 
 -- markdown-plus
 vim.pack.add { 'https://github.com/YousefHadder/markdown-plus.nvim' }
-require('markdown-plus').setup()
+require('markdown-plus').setup {
+  list = {
+    checkbox_completion = {
+      enabled = true,
+      -- format = 'parenthetical',
+      format = 'comment',
+      date_format = '%Y-%m-%d',
+      remove_on_uncheck = true,
+      update_existing = true,
+    },
+  },
+}
